@@ -1,0 +1,4614 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "API documentation",
+    "description" : "# \uD83D\uDCC4 Get started here\n\nThis template contains a boilerplate for documentation that you can quickly customize and reuse.\n\n## \uD83D\uDD16 How to use this template\n\n- Replace the content given brackets (()) with your API's details.\n- Tips are formatted in `codespan` - feel free to read and remove them.\n    \n\n---\n\n`Start with a brief overview of what your API offers.`\n\nThe ((product name)) provides many API products, tools, and resources that enable you to ((add product value here)).\n\n`You can also list the APIs you offer, link to the relevant pages, or do both in this section.`\n\n## **Getting started guide**\n\n`List the steps or points required to start using your APIs. Make sure to cover everything required to reach success with your API as quickly as possible.`\n\nTo start using the ((add APIs here)), you need to -\n\n`The points given below are from The Postman API's documentation. You can reference it to write your own getting started guide.`\n\n- You must use a valid API Key to send requests to the API endpoints. You can get your API key from Postman's [integrations dashboard](https://go.postman.co/settings/me/api-keys).\n- The API has [rate and usage limits](https://postman.postman.co/workspace/Collection-Templates~6311738d-2e70-441f-ae12-78caf078c5b7/collection/22517504-e9c28f47-1253-44af-a2f3-20dce4da1f18?ctx=documentation#rate-and-usage-limits).\n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\n`Add details on the authorization keys/tokens required, steps that cover how to get them, and the relevant error codes.`\n\nThe ((product name)) API uses ((add your API's authorization type)) for authentication.\n\n`The details given below are from the Postman API's documentation. You can reference it to write your own authentication section.`\n\nPostman uses API keys for authentication. You can generate a Postman API key in the [API keys](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.\n\nYou must include an API key in each request to the Postman API with the X-Api-Key request header.\n\n### Authentication error response\n\nIf an API key is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n## Rate and usage limits\n\n`Use this section to cover your APIs' terms of use. Include API limits, constraints, and relevant error codes, so consumers understand the permitted API usage and practices.`\n\n`The example given below is from The Postman API's documentation. Use it as a reference to write your APIs' terms of use.`\n\nAPI access rate limits apply at a per-API key basis in unit time. The limit is 300 requests per minute. Also, depending on your plan, you may have usage limits. If you exceed either limit, your request will return an HTTP 429 Too Many Requests status code.\n\nEach API response returns the following set of headers to help you identify your use status:\n\n| Header | Description |\n| --- | --- |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per minute. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |\n\n### 503 response\n\nAn HTTP `503` response from our servers indicates there is an unexpected spike in API access traffic. The server is usually operational within the next five minutes. If the outage persists or you receive any other form of an HTTP `5XX` error, [contact support](https://support.postman.com/hc/en-us/requests/new/).\n\n### **Need some help?**\n\n`Add links that customers can refer to whenever they need help.`\n\nIn case you have questions, go through our tutorials ((link to your video or help documentation here)). Or visit our FAQ page ((link to the relevant page)).\n\nOr you can check out our community forum, there’s a good chance our community has an answer for you. Visit our developer forum ((link to developer forum)) to review topics, ask questions, and learn from others.\n\n`You can also document or add links to libraries, code examples, and other resources needed to make a request.`",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "description" : "SwaggerHub API Auto Mocking",
+    "url" : "https://virtserver.swaggerhub.com/aidahakobyanff/Ats.am/1.0.0"
+  }, {
+    "url" : "http://{{baseurl}}"
+  } ],
+  "components" : {
+    "securitySchemes" : {
+      "apikeyAuth" : {
+        "type" : "http",
+        "scheme" : "apikey"
+      }
+    }
+  },
+  "security" : [ {
+    "apikeyAuth" : [ ]
+  } ],
+  "tags" : [ {
+    "name" : "Collections",
+    "description" : "The `/collections` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/)."
+  }, {
+    "name" : "Collections > SIP Operators"
+  }, {
+    "name" : "Collections > Virtual Number ex.(22)"
+  }, {
+    "name" : "Collections > IVR short virtul ex.(1or2or3)"
+  }, {
+    "name" : "Collections > GSM Phone number include system pbx"
+  }, {
+    "name" : "Collections > Blacklist phone number"
+  }, {
+    "name" : "Collections > Forwards number"
+  }, {
+    "name" : "Collections > Whitelist IP"
+  }, {
+    "name" : "Collections > Blacklist IP"
+  }, {
+    "name" : "Collections > Virtual Phone Number"
+  } ],
+  "paths" : {
+    "/v3/sip_number" : {
+      "get" : {
+        "tags" : [ "Collections > SIP Operators" ],
+        "summary" : "Get all operators",
+        "parameters" : [ {
+          "name" : "api-key",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          },
+          "description" : "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+          "example" : "{{accessKey}}"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 07:16:20 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "buddy" : "3100282",
+                  "notes" : "Voip ATS",
+                  "issip" : 1,
+                  "rec" : 80,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3100283",
+                  "notes" : "Voip server",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3100284",
+                  "notes" : "Taron mob",
+                  "issip" : 0,
+                  "rec" : 270,
+                  "forward_call" : {
+                    "input" : "3100284",
+                    "output" : "55605172",
+                    "channel" : "umob"
+                  }
+                }, {
+                  "buddy" : "3100285",
+                  "notes" : "L mob",
+                  "issip" : 1,
+                  "rec" : 30,
+                  "forward_call" : {
+                    "input" : "3100285",
+                    "output" : "95736173",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3100768",
+                  "notes" : "Dav mob",
+                  "issip" : 1,
+                  "rec" : 2,
+                  "forward_call" : {
+                    "input" : "3100768",
+                    "output" : "55736173",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3100875",
+                  "notes" : "2024",
+                  "issip" : 1,
+                  "rec" : 10,
+                  "forward_call" : {
+                    "input" : "3100875",
+                    "output" : "100097",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3100999",
+                  "notes" : "Zovuni dmf beeline",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3100999",
+                    "output" : "717",
+                    "channel" : "1_bserver"
+                  }
+                }, {
+                  "buddy" : "3101163",
+                  "notes" : "Spark-line",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3101164",
+                  "notes" : "Masnachux",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3101164",
+                    "output" : "010736173",
+                    "channel" : "37411710101_ucom"
+                  }
+                }, {
+                  "buddy" : "3101254",
+                  "notes" : "Dav sipphone",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3101430",
+                  "notes" : "menq kzabgenq",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3101430",
+                    "output" : "1555",
+                    "channel" : "3100282"
+                  }
+                }, {
+                  "buddy" : "3103091",
+                  "notes" : "Dav SIP",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3103091",
+                    "output" : "3101163_55",
+                    "channel" : "3101163"
+                  }
+                }, {
+                  "buddy" : "3103144",
+                  "notes" : "Mayrik",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3103144",
+                    "output" : "55736179",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103147",
+                  "notes" : "Ani",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3103147",
+                    "output" : "55605173",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103157",
+                  "notes" : "Harut",
+                  "issip" : 0,
+                  "rec" : 180,
+                  "forward_call" : {
+                    "input" : "3103157",
+                    "output" : "3105563",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103158",
+                  "notes" : "VoiceMail",
+                  "issip" : 0,
+                  "rec" : 3,
+                  "forward_call" : {
+                    "input" : "3103158",
+                    "output" : "100097",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103159",
+                  "notes" : "Armen mob",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3103159",
+                    "output" : "3101163_888",
+                    "channel" : "3101163"
+                  }
+                }, {
+                  "buddy" : "3103579",
+                  "notes" : "Nairi",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3103579",
+                    "output" : "55901016",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103580",
+                  "notes" : "Anna 77",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3103580",
+                    "output" : "95275155",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103581",
+                  "notes" : "Hashvapahutyun",
+                  "issip" : 0,
+                  "rec" : 182,
+                  "forward_call" : {
+                    "input" : "3103581",
+                    "output" : "55901013",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103582",
+                  "notes" : "Taron SIP-App",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3103582",
+                    "output" : "37455605172",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103583",
+                  "notes" : "Dav MSK",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3103583",
+                    "output" : "21",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103584",
+                  "notes" : "Dav atsam",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3103585",
+                  "notes" : "Office IP phon",
+                  "issip" : 1,
+                  "rec" : 2,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3103587",
+                  "notes" : "Office GSM",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3103587",
+                    "output" : "55901024",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3103636",
+                  "notes" : "Spyur operator",
+                  "issip" : 1,
+                  "rec" : 30,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3103637",
+                  "notes" : "HarutATS",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105152",
+                  "notes" : "pbx MSK",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105153",
+                  "notes" : "Vahan moskva",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105269",
+                  "notes" : "Vahan MSK",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105410",
+                  "notes" : "TS",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105424",
+                  "notes" : "Demo PC",
+                  "issip" : 1,
+                  "rec" : 15,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105425",
+                  "notes" : "Ira",
+                  "issip" : 0,
+                  "rec" : 90,
+                  "forward_call" : {
+                    "input" : "3105425",
+                    "output" : "55949560",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3105426",
+                  "notes" : "Liza",
+                  "issip" : 0,
+                  "rec" : 180,
+                  "forward_call" : {
+                    "input" : "3105426",
+                    "output" : "55901061",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3105465",
+                  "notes" : "Ruzan",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3105465",
+                    "output" : "95275153",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3105499",
+                  "notes" : "MSK Karen",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105504",
+                  "notes" : "MSK Armen",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105563",
+                  "notes" : "Liana 20",
+                  "issip" : 0,
+                  "rec" : 300,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105564",
+                  "notes" : "Sara",
+                  "issip" : 0,
+                  "rec" : 90,
+                  "forward_call" : {
+                    "input" : "3105564",
+                    "output" : "55801025",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3105565",
+                  "notes" : "NARA",
+                  "issip" : 0,
+                  "rec" : 90,
+                  "forward_call" : {
+                    "input" : "3105565",
+                    "output" : "55801028",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3105575",
+                  "notes" : "MSK Narek",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105576",
+                  "notes" : "Narek MOB",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3105576",
+                    "output" : "55055440",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3105600",
+                  "notes" : "Taron ATS",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105755",
+                  "notes" : "Frunze Davtyan",
+                  "issip" : 0,
+                  "rec" : 90,
+                  "forward_call" : {
+                    "input" : "3105755",
+                    "output" : "95275102",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3105778",
+                  "notes" : "MSK Dav",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3105902",
+                  "notes" : "Dav mob beeline",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3106318",
+                  "notes" : "Ruzan 1",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3106318",
+                    "output" : "95275152",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3106391",
+                  "notes" : "Edgar MSK",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3106392",
+                  "notes" : "Ani MSK",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3106465",
+                  "notes" : "010277999",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3106465",
+                    "output" : "010277999",
+                    "channel" : "37411710101_ucom"
+                  }
+                }, {
+                  "buddy" : "3107332",
+                  "notes" : "zangi",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3107332",
+                    "output" : "81",
+                    "channel" : "1_bserver"
+                  }
+                }, {
+                  "buddy" : "3107471",
+                  "notes" : "Dav B2B mob",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3107471",
+                    "output" : "099180038",
+                    "channel" : "37444720101"
+                  }
+                }, {
+                  "buddy" : "3107812",
+                  "notes" : "Harut SIP phone",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3107812",
+                    "output" : "244",
+                    "channel" : "1_bserver"
+                  }
+                }, {
+                  "buddy" : "3109458",
+                  "notes" : "David beel",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3109458",
+                    "output" : "095736173",
+                    "channel" : "37444720101"
+                  }
+                }, {
+                  "buddy" : "3109809",
+                  "notes" : "Bagdo",
+                  "issip" : 0,
+                  "rec" : 3,
+                  "forward_call" : {
+                    "input" : "3109809",
+                    "output" : "55530767",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3110018",
+                  "notes" : "202 Taron Zangi",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3110018",
+                    "output" : "22",
+                    "channel" : "1_bserver"
+                  }
+                }, {
+                  "buddy" : "3110261",
+                  "notes" : "LI TEST ZANGI",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3110261",
+                    "output" : "4444",
+                    "channel" : "1_bserver"
+                  }
+                }, {
+                  "buddy" : "3110401",
+                  "notes" : "IVR RUS",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3110401",
+                    "output" : "1",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3110406",
+                  "notes" : "OTK-tel",
+                  "issip" : 1,
+                  "rec" : 10,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3110926",
+                  "notes" : "Lena",
+                  "issip" : 0,
+                  "rec" : 60,
+                  "forward_call" : {
+                    "input" : "3110926",
+                    "output" : "55801022",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3111133",
+                  "notes" : "test 82",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3111133",
+                    "output" : "096736173",
+                    "channel" : "37411710101_ucom"
+                  }
+                }, {
+                  "buddy" : "3111210",
+                  "notes" : "Spyur qartuxar test",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3111210",
+                    "output" : "3114829",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3111211",
+                  "notes" : "Armen MSK Zangi",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3111211",
+                    "output" : "888",
+                    "channel" : "1_bserver"
+                  }
+                }, {
+                  "buddy" : "3112244",
+                  "notes" : "Narek mob",
+                  "issip" : 0,
+                  "rec" : 2,
+                  "forward_call" : {
+                    "input" : "3112244",
+                    "output" : "41304055",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3112750",
+                  "notes" : "MWC",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3113006",
+                  "notes" : "B2B CRM moscow",
+                  "issip" : 0,
+                  "rec" : 90,
+                  "forward_call" : {
+                    "input" : "3113006",
+                    "output" : "3114692",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3113124",
+                  "notes" : "Chivili",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3113900",
+                  "notes" : "Siranush",
+                  "issip" : 1,
+                  "rec" : 300,
+                  "forward_call" : {
+                    "input" : "3113900",
+                    "output" : "55801079",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3113975",
+                  "notes" : "chivili 2",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3114133",
+                  "notes" : "soft ",
+                  "issip" : 1,
+                  "rec" : 3,
+                  "forward_call" : {
+                    "input" : "3114133",
+                    "output" : "55801033",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3114335",
+                  "notes" : "Vardan ",
+                  "issip" : 0,
+                  "rec" : 30,
+                  "forward_call" : {
+                    "input" : "3114335",
+                    "output" : "44492283",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3115236",
+                  "notes" : "Narek Test ",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3115427",
+                  "notes" : "SERVER",
+                  "issip" : 0,
+                  "rec" : 7,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3115487",
+                  "notes" : "Alen",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3115558",
+                  "notes" : "Local PBX",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3115559",
+                  "notes" : "SahaK TEST microsip",
+                  "issip" : 1,
+                  "rec" : 30,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3115590",
+                  "notes" : "TESTT2 Liana 3 cx",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3116266",
+                  "notes" : "Local PBX 34",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3116318",
+                  "notes" : "Sargis Gasparyan",
+                  "issip" : 1,
+                  "rec" : 300,
+                  "forward_call" : {
+                    "input" : "3116318",
+                    "output" : "41203049",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3116363",
+                  "notes" : "Local PBX 32",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3116453",
+                  "notes" : "Local PBX 31",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3116792",
+                  "notes" : "Arman moskva",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3116792",
+                    "output" : "95270787",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3117003",
+                  "notes" : "Sargis TEST",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3117547",
+                  "notes" : "Ats IVR",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3117547",
+                    "output" : "2229",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3117548",
+                  "notes" : "Razmik Ghabanyan 102",
+                  "issip" : 0,
+                  "rec" : 300,
+                  "forward_call" : {
+                    "input" : "3117548",
+                    "output" : "55801031",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3118917",
+                  "notes" : "Vicken Team-Outgoing Test",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3118951",
+                  "notes" : "SMART TECH",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3118951",
+                    "output" : "3118923",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3119017",
+                  "notes" : "Sahak mob.",
+                  "issip" : 1,
+                  "rec" : 300,
+                  "forward_call" : {
+                    "input" : "3119017",
+                    "output" : "55801014",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3119235",
+                  "notes" : "Karen Lilit",
+                  "issip" : 1,
+                  "rec" : 10,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3119290",
+                  "notes" : "SipApp",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3119290",
+                    "output" : "37455736173",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3119382",
+                  "notes" : "Server call",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3119421",
+                  "notes" : "Dmf mon",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3119422",
+                  "notes" : "Gegham",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3119674",
+                  "notes" : "vtest1",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3119675",
+                  "notes" : "vtest2",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3119676",
+                  "notes" : "vtest3",
+                  "issip" : 1,
+                  "rec" : 2,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3120590",
+                  "notes" : "Beon",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3120591",
+                  "notes" : "Liana SIP-App",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3120591",
+                    "output" : "37455801024",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3121017",
+                  "notes" : "Siranush apk",
+                  "issip" : 0,
+                  "rec" : 30,
+                  "forward_call" : {
+                    "input" : "3121017",
+                    "output" : "37455801079",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3121019",
+                  "notes" : "Sargis SIP-App",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3121019",
+                    "output" : "37441203049",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3121020",
+                  "notes" : "Vardan SIP-App",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3121020",
+                    "output" : "37444492283",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3121186",
+                  "notes" : "Dav PC SIP-APP",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3121186",
+                    "output" : "37496736173",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3121282",
+                  "notes" : "Liza",
+                  "issip" : 1,
+                  "rec" : 60,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3121331",
+                  "notes" : null,
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3121358",
+                  "notes" : "Zovuni dmf",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3121372",
+                  "notes" : "Dav dmf",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3121374",
+                  "notes" : "Sahak app.",
+                  "issip" : 0,
+                  "rec" : 30,
+                  "forward_call" : {
+                    "input" : "3121374",
+                    "output" : "37455801014",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3122254",
+                  "notes" : "",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3122254",
+                    "output" : "10888",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3122414",
+                  "notes" : "",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3122486",
+                  "notes" : null,
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3122487",
+                  "notes" : "",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3122713",
+                  "notes" : "",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3122725",
+                  "notes" : null,
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3122776",
+                  "notes" : "t1",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3122777",
+                  "notes" : null,
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3122778",
+                  "notes" : null,
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3122823",
+                  "notes" : "Razmik Ghabanyan apk",
+                  "issip" : 1,
+                  "rec" : 30,
+                  "forward_call" : {
+                    "input" : "3122823",
+                    "output" : "37455801031",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3122830",
+                  "notes" : "TIGRAN TEST microsip",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3122865",
+                  "notes" : "Aida apk",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3122865",
+                    "output" : "37495067515",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3122866",
+                  "notes" : "Mark apk",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3122866",
+                    "output" : "37493953075",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3122868",
+                  "notes" : "Pap apk IOS",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3122868",
+                    "output" : "37455530767",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3122914",
+                  "notes" : "Tigran mob.",
+                  "issip" : 1,
+                  "rec" : 30,
+                  "forward_call" : {
+                    "input" : "3122914",
+                    "output" : "55801041",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3123100",
+                  "notes" : "sip.tg",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3123145",
+                  "notes" : "Pap apk Android",
+                  "issip" : 0,
+                  "rec" : 2,
+                  "forward_call" : {
+                    "input" : "3123145",
+                    "output" : "37441280070",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3123175",
+                  "notes" : "Mark test",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3123189",
+                  "notes" : "Andoid nerearvac ",
+                  "issip" : 1,
+                  "rec" : 2,
+                  "forward_call" : {
+                    "input" : "3123189",
+                    "output" : "41280070",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3123381",
+                  "notes" : "Aida N",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : {
+                    "input" : "3123381",
+                    "output" : "44180048",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3123382",
+                  "notes" : "Telegram Pap",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3123383",
+                  "notes" : "Telegram David",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3123403",
+                  "notes" : "Tigran APP",
+                  "issip" : 0,
+                  "rec" : 30,
+                  "forward_call" : {
+                    "input" : "3123403",
+                    "output" : "37455801041",
+                    "channel" : "default"
+                  }
+                }, {
+                  "buddy" : "3123491",
+                  "notes" : "telegram  41280070",
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3123890",
+                  "notes" : null,
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3124131",
+                  "notes" : "",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3124132",
+                  "notes" : "",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3124136",
+                  "notes" : null,
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3124137",
+                  "notes" : "",
+                  "issip" : 0,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3124414",
+                  "notes" : null,
+                  "issip" : 1,
+                  "rec" : 0,
+                  "forward_call" : null
+                }, {
+                  "buddy" : "3124689",
+                  "notes" : "Telegram record 44720101",
+                  "issip" : 1,
+                  "rec" : 2,
+                  "forward_call" : {
+                    "input" : "3124689",
+                    "output" : "20241",
+                    "channel" : "default"
+                  }
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/sip_number/{buddy}" : {
+      "get" : {
+        "tags" : [ "Collections > SIP Operators" ],
+        "summary" : "Get a operator by buddy",
+        "parameters" : [ {
+          "name" : "buddy",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 07:35:31 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "buddy" : "3100284",
+                  "notes" : "Taron mob",
+                  "issip" : 0,
+                  "rec" : 270,
+                  "forward_call" : {
+                    "input" : "3100284",
+                    "output" : "55605172",
+                    "channel" : "umob"
+                  }
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/virtual_number" : {
+      "get" : {
+        "tags" : [ "Collections > Virtual Number ex.(22)" ],
+        "summary" : "Get all Virtual number",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 07:44:49 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "virtual" : 11,
+                  "noaction" : 11,
+                  "timeout" : 20,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3112244"
+                  } ]
+                }, {
+                  "virtual" : 21,
+                  "noaction" : 21,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3100768"
+                  } ]
+                }, {
+                  "virtual" : 23,
+                  "noaction" : 23,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3100285"
+                  } ]
+                }, {
+                  "virtual" : 28,
+                  "noaction" : 28,
+                  "timeout" : 15,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3101254"
+                  } ]
+                }, {
+                  "virtual" : 29,
+                  "noaction" : 29,
+                  "timeout" : 20,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3103587"
+                  } ]
+                }, {
+                  "virtual" : 411,
+                  "noaction" : 411,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3101430"
+                  } ]
+                }, {
+                  "virtual" : 25,
+                  "noaction" : 21,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3103144"
+                  } ]
+                }, {
+                  "virtual" : 32,
+                  "noaction" : 32,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3103147"
+                  } ]
+                }, {
+                  "virtual" : 299,
+                  "noaction" : 299,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3103158"
+                  } ]
+                }, {
+                  "virtual" : 52,
+                  "noaction" : 52,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3103581"
+                  } ]
+                }, {
+                  "virtual" : 93,
+                  "noaction" : 93,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 26,
+                  "noaction" : 10888,
+                  "timeout" : 15,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3103585"
+                  } ]
+                }, {
+                  "virtual" : 50,
+                  "noaction" : 50,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3103579"
+                  } ]
+                }, {
+                  "virtual" : 811,
+                  "noaction" : 811,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3105269"
+                  } ]
+                }, {
+                  "virtual" : 888,
+                  "noaction" : 888,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3105504"
+                  } ]
+                }, {
+                  "virtual" : 137,
+                  "noaction" : 37,
+                  "timeout" : 20,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3115559"
+                  } ]
+                }, {
+                  "virtual" : 27,
+                  "noaction" : 27,
+                  "timeout" : 20,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3116792"
+                  } ]
+                }, {
+                  "virtual" : 33,
+                  "noaction" : 33,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3105425"
+                  } ]
+                }, {
+                  "virtual" : 22,
+                  "noaction" : 22,
+                  "timeout" : 20,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3100284"
+                  } ]
+                }, {
+                  "virtual" : 12,
+                  "noaction" : 12,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3124131"
+                  } ]
+                }, {
+                  "virtual" : 30,
+                  "noaction" : 30,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3105465"
+                  } ]
+                }, {
+                  "virtual" : 4,
+                  "noaction" : 4,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3103581"
+                  } ]
+                }, {
+                  "virtual" : 78,
+                  "noaction" : 78,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3105499"
+                  } ]
+                }, {
+                  "virtual" : 212,
+                  "noaction" : 212,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3105564"
+                  } ]
+                }, {
+                  "virtual" : 213,
+                  "noaction" : 213,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3105565"
+                  } ]
+                }, {
+                  "virtual" : 53,
+                  "noaction" : 53,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3105575"
+                  } ]
+                }, {
+                  "virtual" : 54,
+                  "noaction" : 54,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3105576"
+                  } ]
+                }, {
+                  "virtual" : 37,
+                  "noaction" : 37,
+                  "timeout" : 30,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3119017"
+                  } ]
+                }, {
+                  "virtual" : 214,
+                  "noaction" : 214,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3105755"
+                  } ]
+                }, {
+                  "virtual" : 2211,
+                  "noaction" : 2211,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3105902"
+                  } ]
+                }, {
+                  "virtual" : 5,
+                  "noaction" : 6,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3116318"
+                  } ]
+                }, {
+                  "virtual" : 311,
+                  "noaction" : 311,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3113006"
+                  } ]
+                }, {
+                  "virtual" : 312,
+                  "noaction" : 312,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3106392"
+                  } ]
+                }, {
+                  "virtual" : 31,
+                  "noaction" : 31,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3106318"
+                  } ]
+                }, {
+                  "virtual" : 55,
+                  "noaction" : 55,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3113900"
+                  } ]
+                }, {
+                  "virtual" : 10,
+                  "noaction" : 8,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3100282"
+                  }, {
+                    "buddy" : "7777"
+                  } ]
+                }, {
+                  "virtual" : 244,
+                  "noaction" : 244,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3107812"
+                  } ]
+                }, {
+                  "virtual" : 42,
+                  "noaction" : 24,
+                  "timeout" : 30,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3103637"
+                  } ]
+                }, {
+                  "virtual" : 202,
+                  "noaction" : 202,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3110018"
+                  }, {
+                    "buddy" : "3100282"
+                  } ]
+                }, {
+                  "virtual" : 789,
+                  "noaction" : 789,
+                  "timeout" : 20,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3110401"
+                  } ]
+                }, {
+                  "virtual" : 89,
+                  "noaction" : 89,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3110406"
+                  } ]
+                }, {
+                  "virtual" : 82,
+                  "noaction" : 82,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3111133"
+                  } ]
+                }, {
+                  "virtual" : 234,
+                  "noaction" : 48,
+                  "timeout" : 15,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 126,
+                  "noaction" : 126,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 127,
+                  "noaction" : 127,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 555,
+                  "noaction" : 555,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3113124"
+                  } ]
+                }, {
+                  "virtual" : 0,
+                  "noaction" : 3,
+                  "timeout" : 35,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3110926"
+                  } ]
+                }, {
+                  "virtual" : 13,
+                  "noaction" : 13,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3113975"
+                  } ]
+                }, {
+                  "virtual" : 47,
+                  "noaction" : 10888,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3123189"
+                  } ]
+                }, {
+                  "virtual" : 34,
+                  "noaction" : 34,
+                  "timeout" : 20,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3114335"
+                  } ]
+                }, {
+                  "virtual" : 704,
+                  "noaction" : 705,
+                  "timeout" : 18,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3100282"
+                  } ]
+                }, {
+                  "virtual" : 444,
+                  "noaction" : 10888,
+                  "timeout" : 5,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3115236"
+                  } ]
+                }, {
+                  "virtual" : 88,
+                  "noaction" : 88,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3110926"
+                  } ]
+                }, {
+                  "virtual" : 550,
+                  "noaction" : 20,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3115427"
+                  } ]
+                }, {
+                  "virtual" : 240,
+                  "noaction" : 22,
+                  "timeout" : 20,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3103157"
+                  } ]
+                }, {
+                  "virtual" : 104,
+                  "noaction" : 104,
+                  "timeout" : 20,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3115590"
+                  } ]
+                }, {
+                  "virtual" : 112,
+                  "noaction" : 112,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3115487"
+                  } ]
+                }, {
+                  "virtual" : 113,
+                  "noaction" : 113,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3116266"
+                  } ]
+                }, {
+                  "virtual" : 115,
+                  "noaction" : 115,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3111210"
+                  } ]
+                }, {
+                  "virtual" : 44,
+                  "noaction" : 44,
+                  "timeout" : 25,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3116318"
+                  } ]
+                }, {
+                  "virtual" : 301,
+                  "noaction" : 301,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 302,
+                  "noaction" : 302,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3116363"
+                  } ]
+                }, {
+                  "virtual" : 114,
+                  "noaction" : 114,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3116363"
+                  } ]
+                }, {
+                  "virtual" : 560,
+                  "noaction" : 560,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 6,
+                  "noaction" : 0,
+                  "timeout" : 30,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3113900"
+                  } ]
+                }, {
+                  "virtual" : 45,
+                  "noaction" : 45,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3117003"
+                  }, {
+                    "buddy" : "2525"
+                  }, {
+                    "buddy" : "2"
+                  } ]
+                }, {
+                  "virtual" : 92,
+                  "noaction" : 92,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3100282"
+                  } ]
+                }, {
+                  "virtual" : 101,
+                  "noaction" : 101,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3117547"
+                  } ]
+                }, {
+                  "virtual" : 48,
+                  "noaction" : 48,
+                  "timeout" : 20,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3109809"
+                  } ]
+                }, {
+                  "virtual" : 422,
+                  "noaction" : 422,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 800,
+                  "noaction" : 800,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 233,
+                  "noaction" : 233,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 777,
+                  "noaction" : 777,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3118917"
+                  } ]
+                }, {
+                  "virtual" : 4444,
+                  "noaction" : 4444,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3118951"
+                  } ]
+                }, {
+                  "virtual" : 4445,
+                  "noaction" : 4445,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 220,
+                  "noaction" : 220,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3119676"
+                  } ]
+                }, {
+                  "virtual" : 412,
+                  "noaction" : 412,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3119235"
+                  } ]
+                }, {
+                  "virtual" : 201,
+                  "noaction" : 48,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3119382"
+                  } ]
+                }, {
+                  "virtual" : 8,
+                  "noaction" : 20,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 9,
+                  "noaction" : 20,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 1001,
+                  "noaction" : 1001,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3110406"
+                  } ]
+                }, {
+                  "virtual" : 7,
+                  "noaction" : 7,
+                  "timeout" : 25,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3110926"
+                  }, {
+                    "buddy" : "3117548"
+                  } ]
+                }, {
+                  "virtual" : 14,
+                  "noaction" : 14,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3103144"
+                  } ]
+                }, {
+                  "virtual" : 59,
+                  "noaction" : 59,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3119422"
+                  } ]
+                }, {
+                  "virtual" : 15,
+                  "noaction" : 15,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 51,
+                  "noaction" : 51,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 11999,
+                  "noaction" : 2229,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 16,
+                  "noaction" : 16,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 17,
+                  "noaction" : 17,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 71,
+                  "noaction" : 71,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3119290"
+                  } ]
+                }, {
+                  "virtual" : 72,
+                  "noaction" : 72,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3103582"
+                  } ]
+                }, {
+                  "virtual" : 75,
+                  "noaction" : 75,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3121017"
+                  } ]
+                }, {
+                  "virtual" : 70,
+                  "noaction" : 70,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3120591"
+                  } ]
+                }, {
+                  "virtual" : 74,
+                  "noaction" : 74,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3121019"
+                  } ]
+                }, {
+                  "virtual" : 734,
+                  "noaction" : 734,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3121020"
+                  } ]
+                }, {
+                  "virtual" : 18,
+                  "noaction" : 18,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3121282"
+                  } ]
+                }, {
+                  "virtual" : 711,
+                  "noaction" : 711,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3121186"
+                  } ]
+                }, {
+                  "virtual" : 717,
+                  "noaction" : 717,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3121358"
+                  } ]
+                }, {
+                  "virtual" : 718,
+                  "noaction" : 718,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3121372"
+                  } ]
+                }, {
+                  "virtual" : 73,
+                  "noaction" : 77,
+                  "timeout" : 20,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3121374"
+                  } ]
+                }, {
+                  "virtual" : 715,
+                  "noaction" : 21,
+                  "timeout" : 30,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3119421"
+                  } ]
+                }, {
+                  "virtual" : 19,
+                  "noaction" : 19,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3122414"
+                  } ]
+                }, {
+                  "virtual" : 35,
+                  "noaction" : 35,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3122487"
+                  } ]
+                }, {
+                  "virtual" : 78,
+                  "noaction" : 78,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 440,
+                  "noaction" : 440,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3122865"
+                  } ]
+                }, {
+                  "virtual" : 441,
+                  "noaction" : 441,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3122866"
+                  } ]
+                }, {
+                  "virtual" : 442,
+                  "noaction" : 442,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3122868"
+                  } ]
+                }, {
+                  "virtual" : 102,
+                  "noaction" : 102,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3117548"
+                  } ]
+                }, {
+                  "virtual" : 103,
+                  "noaction" : 102,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3122823"
+                  } ]
+                }, {
+                  "virtual" : 49,
+                  "noaction" : 48,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3122868"
+                  } ]
+                }, {
+                  "virtual" : 95,
+                  "noaction" : 95,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3113900"
+                  } ]
+                }, {
+                  "virtual" : 20,
+                  "noaction" : 120,
+                  "timeout" : 20,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3123403"
+                  }, {
+                    "buddy" : "3123403"
+                  }, {
+                    "buddy" : "3123403"
+                  }, {
+                    "buddy" : "3122914"
+                  }, {
+                    "buddy" : "3122914"
+                  }, {
+                    "buddy" : "3122914"
+                  }, {
+                    "buddy" : "3119017"
+                  } ]
+                }, {
+                  "virtual" : 3,
+                  "noaction" : 20,
+                  "timeout" : 30,
+                  "cwaiting" : 1,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 97,
+                  "noaction" : 73,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3122914"
+                  } ]
+                }, {
+                  "virtual" : 65,
+                  "noaction" : 5555,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 111,
+                  "noaction" : 111,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3100284"
+                  } ]
+                }, {
+                  "virtual" : 443,
+                  "noaction" : 443,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3123145"
+                  } ]
+                }, {
+                  "virtual" : 333,
+                  "noaction" : 26,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3107332"
+                  }, {
+                    "buddy" : "3119017"
+                  } ]
+                }, {
+                  "virtual" : 445,
+                  "noaction" : 445,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3123175"
+                  } ]
+                }, {
+                  "virtual" : 43,
+                  "noaction" : 43,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3123381"
+                  } ]
+                }, {
+                  "virtual" : 171,
+                  "noaction" : 171,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3123382"
+                  } ]
+                }, {
+                  "virtual" : 121,
+                  "noaction" : 121,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3123383"
+                  } ]
+                }, {
+                  "virtual" : 77,
+                  "noaction" : 97,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3123403"
+                  } ]
+                }, {
+                  "virtual" : 172,
+                  "noaction" : 172,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3123491"
+                  } ]
+                }, {
+                  "virtual" : 197,
+                  "noaction" : 197,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ {
+                    "buddy" : "3122830"
+                  } ]
+                }, {
+                  "virtual" : 120,
+                  "noaction" : 3,
+                  "timeout" : 20,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3122914"
+                  }, {
+                    "buddy" : "3122914"
+                  }, {
+                    "buddy" : "3122914"
+                  }, {
+                    "buddy" : "3119017"
+                  } ]
+                }, {
+                  "virtual" : 46,
+                  "noaction" : 10888,
+                  "timeout" : 50,
+                  "cwaiting" : 0,
+                  "buddies" : [ ]
+                }, {
+                  "virtual" : 2389,
+                  "noaction" : 2389,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3120590"
+                  } ]
+                }, {
+                  "virtual" : 2024,
+                  "noaction" : 2024,
+                  "timeout" : 50,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3100875"
+                  } ]
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/virtual_number/{virtual}" : {
+      "get" : {
+        "tags" : [ "Collections > Virtual Number ex.(22)" ],
+        "summary" : "Get a Virtual by virtual number",
+        "parameters" : [ {
+          "name" : "virtual",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 07:48:05 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "virtual" : 11,
+                  "noaction" : 11,
+                  "timeout" : 20,
+                  "cwaiting" : 1,
+                  "buddies" : [ {
+                    "buddy" : "3112244"
+                  } ]
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/ivr_number" : {
+      "get" : {
+        "tags" : [ "Collections > IVR short virtul ex.(1or2or3)" ],
+        "summary" : "Get all IVR number",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 07:49:38 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "virtual" : 2525,
+                  "noaction" : 10999,
+                  "buddies" : [ {
+                    "ivr" : "1477954831.1295"
+                  } ]
+                }, {
+                  "virtual" : 2255,
+                  "noaction" : 2255,
+                  "buddies" : [ {
+                    "ivr" : "1477954831.1295"
+                  } ]
+                }, {
+                  "virtual" : 2229,
+                  "noaction" : 20,
+                  "buddies" : [ {
+                    "ivr" : "1519911277.7454"
+                  }, {
+                    "ivr" : "1519911378.0506"
+                  }, {
+                    "ivr" : "1529338424.8142"
+                  }, {
+                    "ivr" : "1636560717.3756"
+                  } ]
+                }, {
+                  "virtual" : 1,
+                  "noaction" : 20,
+                  "buddies" : [ {
+                    "ivr" : "1519911298.545"
+                  } ]
+                }, {
+                  "virtual" : 2,
+                  "noaction" : 20,
+                  "buddies" : [ {
+                    "ivr" : "1519911397.3635"
+                  } ]
+                }, {
+                  "virtual" : 678,
+                  "noaction" : 678,
+                  "buddies" : [ {
+                    "ivr" : "1519911253.2893"
+                  } ]
+                }, {
+                  "virtual" : 696,
+                  "noaction" : 696,
+                  "buddies" : [ {
+                    "ivr" : "1519911232.6097"
+                  } ]
+                }, {
+                  "virtual" : 7878,
+                  "noaction" : 10888,
+                  "buddies" : [ {
+                    "ivr" : "1636560705.1374"
+                  }, {
+                    "ivr" : "1477954831.1295"
+                  } ]
+                }, {
+                  "virtual" : 2135,
+                  "noaction" : 2135,
+                  "buddies" : [ {
+                    "ivr" : "1519911253.2893"
+                  }, {
+                    "ivr" : "1519911319.2253"
+                  } ]
+                }, {
+                  "virtual" : 7777,
+                  "noaction" : 10888,
+                  "buddies" : [ {
+                    "ivr" : "1668701308.9309"
+                  } ]
+                }, {
+                  "virtual" : 8888,
+                  "noaction" : 10888,
+                  "buddies" : [ {
+                    "ivr" : "1678696169.8678"
+                  } ]
+                }, {
+                  "virtual" : 222,
+                  "noaction" : 1040,
+                  "buddies" : [ {
+                    "ivr" : "1665859454.9486"
+                  } ]
+                }, {
+                  "virtual" : 2228,
+                  "noaction" : 2228,
+                  "buddies" : [ {
+                    "ivr" : "1519911172.6778"
+                  }, {
+                    "ivr" : "1519911172.6778"
+                  }, {
+                    "ivr" : "1519911172.6778"
+                  } ]
+                }, {
+                  "virtual" : 2227,
+                  "noaction" : 2227,
+                  "buddies" : [ {
+                    "ivr" : "1519911172.6778"
+                  }, {
+                    "ivr" : "1519911397.3635"
+                  }, {
+                    "ivr" : "1477954831.1295"
+                  }, {
+                    "ivr" : "1519911172.6778"
+                  } ]
+                }, {
+                  "virtual" : 5555,
+                  "noaction" : 20,
+                  "buddies" : [ {
+                    "ivr" : "1694760438.3023"
+                  }, {
+                    "ivr" : "1694760395.0521"
+                  } ]
+                }, {
+                  "virtual" : 2025,
+                  "noaction" : 2025,
+                  "buddies" : [ {
+                    "ivr" : "1707660882.7279"
+                  } ]
+                }, {
+                  "virtual" : 9851,
+                  "noaction" : 9851,
+                  "buddies" : [ {
+                    "ivr" : "1708511213.7181"
+                  } ]
+                }, {
+                  "virtual" : 2225,
+                  "noaction" : 2225,
+                  "buddies" : [ {
+                    "ivr" : "1519911277.7454"
+                  }, {
+                    "ivr" : "1519911378.0506"
+                  }, {
+                    "ivr" : "1529338424.8142"
+                  }, {
+                    "ivr" : "1636560717.3756"
+                  } ]
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/ivr_number/{ivr}" : {
+      "get" : {
+        "tags" : [ "Collections > IVR short virtul ex.(1or2or3)" ],
+        "summary" : "Get a IVR by virtual number",
+        "parameters" : [ {
+          "name" : "ivr",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 07:51:13 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "virtual" : 2525,
+                  "noaction" : 10999,
+                  "buddies" : [ {
+                    "ivr" : "1477954831.1295"
+                  } ]
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/phone_number" : {
+      "get" : {
+        "tags" : [ "Collections > GSM Phone number include system pbx" ],
+        "summary" : "Get all GSM Phone number include system",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 07:53:12 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "phone" : "37441203049",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37441280070",
+                  "context" : "Android Pap APK",
+                  "sipdid" : "37411710101",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37444492283",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37455530767",
+                  "context" : "Pap Apk IOS",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37455605172",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37455736173",
+                  "context" : "sipapp",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37455801014",
+                  "context" : "Sahak apk",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37455801024",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37455801031",
+                  "context" : "Razmik Apk",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37455801041",
+                  "context" : "Tigran Apk",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37455801079",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37477530767",
+                  "context" : "Mobile",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37493953075",
+                  "context" : "Mark apk",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37495067515",
+                  "context" : "sipapp",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "37496736173",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 "
+                }, {
+                  "phone" : "41203049",
+                  "context" : "Gasparyan Sargis",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "41280070",
+                  "context" : "Android",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "41304055",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "44180048",
+                  "context" : "Aida",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "44492283",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "44530767",
+                  "context" : "121",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "44710012",
+                  "context" : "Narek MOB",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55530767",
+                  "context" : "48",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55530802",
+                  "context" : "tests",
+                  "sipdid" : "37411710101",
+                  "codelist" : "1 4 "
+                }, {
+                  "phone" : "55605172",
+                  "context" : "Taron",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55605173",
+                  "context" : "Ani",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55736173",
+                  "context" : "Dav mob",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55736179",
+                  "context" : "Mayrik",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55801014",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55801022",
+                  "context" : "484",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55801024",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55801025",
+                  "context" : "op2",
+                  "sipdid" : "",
+                  "codelist" : "1 2 "
+                }, {
+                  "phone" : "55801028",
+                  "context" : "op3",
+                  "sipdid" : "",
+                  "codelist" : "1 2 "
+                }, {
+                  "phone" : "55801031",
+                  "context" : "102",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55801033",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55801041",
+                  "context" : "101",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55801079",
+                  "context" : "Siranush",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55890305",
+                  "context" : "Vahan",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55901013",
+                  "context" : "Hashvapahutyun",
+                  "sipdid" : "",
+                  "codelist" : "1 2 "
+                }, {
+                  "phone" : "55901016",
+                  "context" : "Nairi",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55901024",
+                  "context" : "office",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55901061",
+                  "context" : "Liza",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "55949560",
+                  "context" : "Ira",
+                  "sipdid" : "",
+                  "codelist" : "1 2 "
+                }, {
+                  "phone" : "95270787",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "95275102",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "95275152",
+                  "context" : "Ruzan 1",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "95275153",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "95275155",
+                  "context" : "demo1",
+                  "sipdid" : "",
+                  "codelist" : "1 2 "
+                }, {
+                  "phone" : "95275156",
+                  "context" : "",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "95555181",
+                  "context" : "Harut",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                }, {
+                  "phone" : "95736173",
+                  "context" : "",
+                  "sipdid" : "37444202033",
+                  "codelist" : "1 2 3 "
+                }, {
+                  "phone" : "95988510",
+                  "context" : "VoiceMail",
+                  "sipdid" : "",
+                  "codelist" : "1 2 3 4 "
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/phone_number/{phone}" : {
+      "get" : {
+        "tags" : [ "Collections > GSM Phone number include system pbx" ],
+        "summary" : "Get a GSM include system by Phone number",
+        "parameters" : [ {
+          "name" : "phone",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 09:13:10 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "phone" : "37441280070",
+                  "context" : "Android Pap APK",
+                  "sipdid" : "37411710101",
+                  "codelist" : "1 2 3 4 "
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/blacklist_phone" : {
+      "get" : {
+        "tags" : [ "Collections > Blacklist phone number" ],
+        "summary" : "Get all Blacklist phone number",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 09:52:50 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "phone" : "055565656",
+                  "notes" : "Տեքստը խոսքի հայերեն  կարիք լավ տեխնոլոգիա է լավ աշխատել, սակայն, որ տեխնոլոգիան դժվար է գալ, եւ դա միշտ էլ ցավ է իրականացնել. ResponsiveVoice ստանում ձեզ բոլոր-ի մեկ, մատչելի եւ ցավը, ազատ լուծում, մեկը, որ միայն կշռում 14kB եւ լուծում է անհամար խնդիրներ"
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/blacklist_phone/{phone_bk}" : {
+      "get" : {
+        "tags" : [ "Collections > Blacklist phone number" ],
+        "summary" : "Get a blacklist phone by phone number",
+        "parameters" : [ {
+          "name" : "phone_bk",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 09:55:09 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "phone" : "055565656",
+                  "notes" : "Տեքստը խոսքի հայերեն  կարիք լավ տեխնոլոգիա է լավ աշխատել, սակայն, որ տեխնոլոգիան դժվար է գալ, եւ դա միշտ էլ ցավ է իրականացնել. ResponsiveVoice ստանում ձեզ բոլոր-ի մեկ, մատչելի եւ ցավը, ազատ լուծում, մեկը, որ միայն կշռում 14kB եւ լուծում է անհամար խնդիրներ"
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/forward_number" : {
+      "get" : {
+        "tags" : [ "Collections > Forwards number" ],
+        "summary" : "Get all forwards number in system",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 09:15:39 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "input" : "3100768",
+                  "output" : "55736173",
+                  "channel" : "default"
+                }, {
+                  "input" : "3100999",
+                  "output" : "717",
+                  "channel" : "1_bserver"
+                }, {
+                  "input" : "3103147",
+                  "output" : "55605173",
+                  "channel" : "default"
+                }, {
+                  "input" : "3100285",
+                  "output" : "95736173",
+                  "channel" : "default"
+                }, {
+                  "input" : "3103581",
+                  "output" : "55901013",
+                  "channel" : "default"
+                }, {
+                  "input" : "3100284",
+                  "output" : "55605172",
+                  "channel" : "umob"
+                }, {
+                  "input" : "37444720101",
+                  "output" : "10999",
+                  "channel" : "default"
+                }, {
+                  "input" : "3103580",
+                  "output" : "95275155",
+                  "channel" : "default"
+                }, {
+                  "input" : "3101430",
+                  "output" : "1555",
+                  "channel" : "3100282"
+                }, {
+                  "input" : "3101164",
+                  "output" : "010736173",
+                  "channel" : "37411710101_ucom"
+                }, {
+                  "input" : "3103091",
+                  "output" : "3101163_55",
+                  "channel" : "3101163"
+                }, {
+                  "input" : "3103157",
+                  "output" : "3105563",
+                  "channel" : "default"
+                }, {
+                  "input" : "3103144",
+                  "output" : "55736179",
+                  "channel" : "default"
+                }, {
+                  "input" : "3103158",
+                  "output" : "100097",
+                  "channel" : "default"
+                }, {
+                  "input" : "3103587",
+                  "output" : "55901024",
+                  "channel" : "default"
+                }, {
+                  "input" : "37455736173",
+                  "output" : "21",
+                  "channel" : "default"
+                }, {
+                  "input" : "3103579",
+                  "output" : "55901016",
+                  "channel" : "default"
+                }, {
+                  "input" : "3103159",
+                  "output" : "3101163_888",
+                  "channel" : "3101163"
+                }, {
+                  "input" : "3103582",
+                  "output" : "37455605172",
+                  "channel" : "default"
+                }, {
+                  "input" : "3105425",
+                  "output" : "55949560",
+                  "channel" : "default"
+                }, {
+                  "input" : "3105426",
+                  "output" : "55901061",
+                  "channel" : "default"
+                }, {
+                  "input" : "3105465",
+                  "output" : "95275153",
+                  "channel" : "default"
+                }, {
+                  "input" : "3105564",
+                  "output" : "55801025",
+                  "channel" : "default"
+                }, {
+                  "input" : "3105565",
+                  "output" : "55801028",
+                  "channel" : "default"
+                }, {
+                  "input" : "3105576",
+                  "output" : "55055440",
+                  "channel" : "default"
+                }, {
+                  "input" : "37455055440",
+                  "output" : "53",
+                  "channel" : "default"
+                }, {
+                  "input" : "3105755",
+                  "output" : "95275102",
+                  "channel" : "default"
+                }, {
+                  "input" : "3103583",
+                  "output" : "21",
+                  "channel" : "default"
+                }, {
+                  "input" : "3106465",
+                  "output" : "010277999",
+                  "channel" : "37411710101_ucom"
+                }, {
+                  "input" : "3106318",
+                  "output" : "95275152",
+                  "channel" : "default"
+                }, {
+                  "input" : "3107332",
+                  "output" : "81",
+                  "channel" : "1_bserver"
+                }, {
+                  "input" : "3107471",
+                  "output" : "099180038",
+                  "channel" : "37444720101"
+                }, {
+                  "input" : "3107812",
+                  "output" : "244",
+                  "channel" : "1_bserver"
+                }, {
+                  "input" : "37444202033",
+                  "output" : "23",
+                  "channel" : "default"
+                }, {
+                  "input" : "37460650084",
+                  "output" : "2229",
+                  "channel" : "default"
+                }, {
+                  "input" : "3109458",
+                  "output" : "095736173",
+                  "channel" : "37444720101"
+                }, {
+                  "input" : "37455771677",
+                  "output" : "11",
+                  "channel" : "89_bserver"
+                }, {
+                  "input" : "37495988508",
+                  "output" : "11",
+                  "channel" : "111_bserver"
+                }, {
+                  "input" : "3110018",
+                  "output" : "22",
+                  "channel" : "1_bserver"
+                }, {
+                  "input" : "37455605172",
+                  "output" : "202",
+                  "channel" : "default"
+                }, {
+                  "input" : "3110261",
+                  "output" : "4444",
+                  "channel" : "1_bserver"
+                }, {
+                  "input" : "3110926",
+                  "output" : "55801022",
+                  "channel" : "default"
+                }, {
+                  "input" : "3111133",
+                  "output" : "096736173",
+                  "channel" : "37411710101_ucom"
+                }, {
+                  "input" : "3111211",
+                  "output" : "888",
+                  "channel" : "1_bserver"
+                }, {
+                  "input" : "3113900",
+                  "output" : "55801079",
+                  "channel" : "default"
+                }, {
+                  "input" : "37410736173",
+                  "output" : "25",
+                  "channel" : "default"
+                }, {
+                  "input" : "3114133",
+                  "output" : "55801033",
+                  "channel" : "default"
+                }, {
+                  "input" : "3114335",
+                  "output" : "44492283",
+                  "channel" : "default"
+                }, {
+                  "input" : "3111210",
+                  "output" : "3114829",
+                  "channel" : "default"
+                }, {
+                  "input" : "3112244",
+                  "output" : "41304055",
+                  "channel" : "default"
+                }, {
+                  "input" : "3116318",
+                  "output" : "41203049",
+                  "channel" : "default"
+                }, {
+                  "input" : "3116792",
+                  "output" : "95270787",
+                  "channel" : "default"
+                }, {
+                  "input" : "3113006",
+                  "output" : "3114692",
+                  "channel" : "default"
+                }, {
+                  "input" : "3117548",
+                  "output" : "55801031",
+                  "channel" : "default"
+                }, {
+                  "input" : "3110401",
+                  "output" : "1",
+                  "channel" : "default"
+                }, {
+                  "input" : "3118951",
+                  "output" : "3118923",
+                  "channel" : "default"
+                }, {
+                  "input" : "3119017",
+                  "output" : "55801014",
+                  "channel" : "default"
+                }, {
+                  "input" : "79250870100",
+                  "output" : "21",
+                  "channel" : "default"
+                }, {
+                  "input" : "37411710101",
+                  "output" : "2229",
+                  "channel" : "default"
+                }, {
+                  "input" : "37410710707",
+                  "output" : "2229",
+                  "channel" : "default"
+                }, {
+                  "input" : "37498268374",
+                  "output" : "2229",
+                  "channel" : "default"
+                }, {
+                  "input" : "37477978070",
+                  "output" : "59",
+                  "channel" : "default"
+                }, {
+                  "input" : "37410525205",
+                  "output" : "8888",
+                  "channel" : "default"
+                }, {
+                  "input" : "37441270127",
+                  "output" : "2229",
+                  "channel" : "default"
+                }, {
+                  "input" : "3119290",
+                  "output" : "37455736173",
+                  "channel" : "default"
+                }, {
+                  "input" : "3121017",
+                  "output" : "37455801079",
+                  "channel" : "default"
+                }, {
+                  "input" : "3120591",
+                  "output" : "37455801024",
+                  "channel" : "default"
+                }, {
+                  "input" : "3121019",
+                  "output" : "37441203049",
+                  "channel" : "default"
+                }, {
+                  "input" : "3121020",
+                  "output" : "37444492283",
+                  "channel" : "default"
+                }, {
+                  "input" : "3121186",
+                  "output" : "37496736173",
+                  "channel" : "default"
+                }, {
+                  "input" : "3121374",
+                  "output" : "37455801014",
+                  "channel" : "default"
+                }, {
+                  "input" : "3122254",
+                  "output" : "10888",
+                  "channel" : "default"
+                }, {
+                  "input" : "12177600100",
+                  "output" : "2229",
+                  "channel" : "default"
+                }, {
+                  "input" : "3122865",
+                  "output" : "37495067515",
+                  "channel" : "default"
+                }, {
+                  "input" : "3122866",
+                  "output" : "37493953075",
+                  "channel" : "default"
+                }, {
+                  "input" : "3122823",
+                  "output" : "37455801031",
+                  "channel" : "default"
+                }, {
+                  "input" : "3122868",
+                  "output" : "37455530767",
+                  "channel" : "default"
+                }, {
+                  "input" : "3122914",
+                  "output" : "55801041",
+                  "channel" : "default"
+                }, {
+                  "input" : "3123145",
+                  "output" : "37441280070",
+                  "channel" : "default"
+                }, {
+                  "input" : "3123189",
+                  "output" : "41280070",
+                  "channel" : "default"
+                }, {
+                  "input" : "3123381",
+                  "output" : "44180048",
+                  "channel" : "default"
+                }, {
+                  "input" : "3123403",
+                  "output" : "37455801041",
+                  "channel" : "default"
+                }, {
+                  "input" : "3124689",
+                  "output" : "20241",
+                  "channel" : "default"
+                }, {
+                  "input" : "3100875",
+                  "output" : "100097",
+                  "channel" : "default"
+                }, {
+                  "input" : "3109809",
+                  "output" : "55530767",
+                  "channel" : "default"
+                }, {
+                  "input" : "3117547",
+                  "output" : "2229",
+                  "channel" : "default"
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/forward_number/{input}" : {
+      "get" : {
+        "tags" : [ "Collections > Forwards number" ],
+        "summary" : "Get a forward by input number",
+        "parameters" : [ {
+          "name" : "input",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 09:51:00 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "input" : "3123145",
+                  "output" : "37441280070",
+                  "channel" : "default"
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/ip_whitelist" : {
+      "get" : {
+        "tags" : [ "Collections > Whitelist IP" ],
+        "summary" : "Get all Whitelist",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 09:56:32 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "ip" : "10.227.0.25",
+                  "ztime" : "2021-03-15 01:46:42"
+                }, {
+                  "ip" : "95.140.203.92",
+                  "ztime" : "2021-09-06 18:17:24"
+                }, {
+                  "ip" : "46.36.118.162",
+                  "ztime" : "2021-09-07 11:58:10"
+                }, {
+                  "ip" : "195.191.187.172",
+                  "ztime" : "2021-09-07 11:58:51"
+                }, {
+                  "ip" : "95.140.203.93",
+                  "ztime" : "2021-09-18 19:42:51"
+                }, {
+                  "ip" : "91.103.248.35",
+                  "ztime" : "2021-09-22 14:54:45"
+                }, {
+                  "ip" : "69.167.178.6",
+                  "ztime" : "2021-09-22 15:32:08"
+                }, {
+                  "ip" : "46.36.117.89",
+                  "ztime" : "2021-10-20 15:17:30"
+                }, {
+                  "ip" : "213.87.148.53",
+                  "ztime" : "2021-11-16 12:05:21"
+                }, {
+                  "ip" : "45.159.73.246",
+                  "ztime" : "2021-11-17 11:30:21"
+                }, {
+                  "ip" : "46.36.116.38",
+                  "ztime" : "2021-12-26 21:45:58"
+                }, {
+                  "ip" : "46.36.113.124",
+                  "ztime" : "2022-01-10 09:30:22"
+                }, {
+                  "ip" : "46.70.226.188",
+                  "ztime" : "2022-01-12 15:47:13"
+                }, {
+                  "ip" : "141.136.78.198",
+                  "ztime" : "2022-01-14 18:35:55"
+                }, {
+                  "ip" : "141.136.77.94",
+                  "ztime" : "2022-01-20 10:29:34"
+                }, {
+                  "ip" : "141.136.78.87",
+                  "ztime" : "2022-01-20 10:56:28"
+                }, {
+                  "ip" : "141.136.76.89",
+                  "ztime" : "2022-01-21 18:05:22"
+                }, {
+                  "ip" : "141.136.77.57",
+                  "ztime" : "2022-02-02 10:06:23"
+                }, {
+                  "ip" : "141.136.79.72",
+                  "ztime" : "2022-02-02 10:17:20"
+                }, {
+                  "ip" : "46.36.115.104",
+                  "ztime" : "2022-02-09 14:06:56"
+                }, {
+                  "ip" : "141.136.77.217",
+                  "ztime" : "2022-03-30 20:28:06"
+                }, {
+                  "ip" : "46.36.117.223",
+                  "ztime" : "2022-04-13 14:46:15"
+                }, {
+                  "ip" : "37.252.95.47",
+                  "ztime" : "2022-04-17 16:37:55"
+                }, {
+                  "ip" : "37.252.92.84",
+                  "ztime" : "2022-04-17 16:39:05"
+                }, {
+                  "ip" : "141.136.79.36",
+                  "ztime" : "2022-05-17 20:43:31"
+                }, {
+                  "ip" : "37.252.88.85",
+                  "ztime" : "2022-06-20 11:41:09"
+                }, {
+                  "ip" : "46.70.148.63",
+                  "ztime" : "2022-06-20 11:41:42"
+                }, {
+                  "ip" : "46.36.114.116",
+                  "ztime" : "2022-06-28 14:45:05"
+                }, {
+                  "ip" : "46.36.114.197",
+                  "ztime" : "2022-07-09 00:00:38"
+                }, {
+                  "ip" : "178.78.159.224",
+                  "ztime" : "2022-07-09 00:12:47"
+                }, {
+                  "ip" : "213.87.138.132",
+                  "ztime" : "2022-07-13 13:34:22"
+                }, {
+                  "ip" : "46.70.137.60",
+                  "ztime" : "2022-08-08 22:20:28"
+                }, {
+                  "ip" : "46.36.117.155",
+                  "ztime" : "2022-08-12 11:35:54"
+                }, {
+                  "ip" : "92.43.143.34",
+                  "ztime" : "2022-08-16 14:41:41"
+                }, {
+                  "ip" : "46.70.83.11",
+                  "ztime" : "2022-09-14 12:50:42"
+                }, {
+                  "ip" : "5.77.189.88",
+                  "ztime" : "2022-09-14 13:29:57"
+                }, {
+                  "ip" : "46.71.226.100",
+                  "ztime" : "2022-09-27 14:54:52"
+                }, {
+                  "ip" : "46.70.163.95",
+                  "ztime" : "2022-10-03 13:01:46"
+                }, {
+                  "ip" : "178.78.129.74",
+                  "ztime" : "2022-10-03 13:40:00"
+                }, {
+                  "ip" : "185.179.2.97",
+                  "ztime" : "2022-10-03 16:15:13"
+                }, {
+                  "ip" : "141.136.76.103",
+                  "ztime" : "2022-10-20 22:30:49"
+                }, {
+                  "ip" : "193.29.56.153",
+                  "ztime" : "2022-10-29 23:04:38"
+                }, {
+                  "ip" : "94.103.92.164",
+                  "ztime" : "2022-10-29 23:19:02"
+                }, {
+                  "ip" : "5.77.170.90",
+                  "ztime" : "2022-11-03 17:55:27"
+                }, {
+                  "ip" : "46.70.37.158",
+                  "ztime" : "2022-11-18 18:15:48"
+                }, {
+                  "ip" : "46.36.114.117",
+                  "ztime" : "2022-11-25 11:29:35"
+                }, {
+                  "ip" : "83.139.24.48",
+                  "ztime" : "2022-12-08 22:10:24"
+                }, {
+                  "ip" : "141.136.89.151",
+                  "ztime" : "2022-12-15 10:57:03"
+                }, {
+                  "ip" : "148.251.20.69",
+                  "ztime" : "2022-12-15 14:24:18"
+                }, {
+                  "ip" : "37.252.88.54",
+                  "ztime" : "2022-12-15 17:43:30"
+                }, {
+                  "ip" : "5.77.219.233",
+                  "ztime" : "2023-01-27 15:46:42"
+                }, {
+                  "ip" : "5.77.218.106",
+                  "ztime" : "2023-01-31 10:34:19"
+                }, {
+                  "ip" : "185.177.105.151",
+                  "ztime" : "2023-03-23 17:15:44"
+                }, {
+                  "ip" : "62.89.18.138",
+                  "ztime" : "2023-03-24 13:26:24"
+                }, {
+                  "ip" : "5.77.145.222",
+                  "ztime" : "2023-05-02 10:49:13"
+                }, {
+                  "ip" : "188.115.227.155",
+                  "ztime" : "2023-05-02 10:55:55"
+                }, {
+                  "ip" : "95.214.58.240",
+                  "ztime" : "2023-05-03 17:36:26"
+                }, {
+                  "ip" : "46.36.112.97",
+                  "ztime" : "2023-05-06 19:33:55"
+                }, {
+                  "ip" : "46.71.11.225",
+                  "ztime" : "2023-05-20 21:56:57"
+                }, {
+                  "ip" : "185.117.83.208",
+                  "ztime" : "2023-05-20 21:57:11"
+                }, {
+                  "ip" : "216.147.4.1",
+                  "ztime" : "2023-06-17 15:34:15"
+                }, {
+                  "ip" : "216.147.4.2",
+                  "ztime" : "2023-06-17 15:34:25"
+                }, {
+                  "ip" : "46.70.94.52",
+                  "ztime" : "2023-06-21 09:58:21"
+                }, {
+                  "ip" : "46.71.172.132",
+                  "ztime" : "2023-06-27 11:17:42"
+                }, {
+                  "ip" : "46.71.87.58",
+                  "ztime" : "2023-07-04 15:06:13"
+                }, {
+                  "ip" : "46.71.51.71",
+                  "ztime" : "2023-07-29 16:57:12"
+                }, {
+                  "ip" : "46.70.224.128",
+                  "ztime" : "2023-08-09 11:30:38"
+                }, {
+                  "ip" : "46.70.186.0",
+                  "ztime" : "2023-09-03 18:58:30"
+                }, {
+                  "ip" : "217.76.13.38",
+                  "ztime" : "2023-09-11 11:49:35"
+                }, {
+                  "ip" : "37.252.88.55",
+                  "ztime" : "2023-09-19 20:18:32"
+                }, {
+                  "ip" : "217.197.116.184",
+                  "ztime" : "2023-10-15 20:46:19"
+                }, {
+                  "ip" : "45.128.205.183",
+                  "ztime" : "2023-10-28 22:23:56"
+                }, {
+                  "ip" : "5.77.186.220",
+                  "ztime" : "2023-10-31 14:54:50"
+                }, {
+                  "ip" : "46.70.57.12",
+                  "ztime" : "2023-10-31 15:05:39"
+                }, {
+                  "ip" : "92.43.140.71",
+                  "ztime" : "2023-10-31 15:09:25"
+                }, {
+                  "ip" : "37.252.94.170",
+                  "ztime" : "2023-11-02 14:22:48"
+                }, {
+                  "ip" : "46.70.234.251",
+                  "ztime" : "2023-11-15 20:48:51"
+                }, {
+                  "ip" : "46.70.211.234",
+                  "ztime" : "2023-12-09 09:40:22"
+                }, {
+                  "ip" : "46.70.141.70",
+                  "ztime" : "2023-12-20 11:34:32"
+                }, {
+                  "ip" : "78.109.72.52",
+                  "ztime" : "2024-01-11 17:44:40"
+                }, {
+                  "ip" : "46.71.31.43",
+                  "ztime" : "2024-01-12 12:19:13"
+                }, {
+                  "ip" : "46.70.38.51",
+                  "ztime" : "2024-01-29 10:02:10"
+                }, {
+                  "ip" : "217.76.14.77",
+                  "ztime" : "2024-02-11 22:03:32"
+                }, {
+                  "ip" : "212.109.198.68",
+                  "ztime" : "2024-03-07 14:36:54"
+                }, {
+                  "ip" : "",
+                  "ztime" : "2024-03-19 17:37:26"
+                }, {
+                  "ip" : "37.252.94.126",
+                  "ztime" : "2024-03-21 20:06:19"
+                }, {
+                  "ip" : "46.70.164.205",
+                  "ztime" : "2024-03-23 15:15:11"
+                }, {
+                  "ip" : "78.109.68.10",
+                  "ztime" : "2024-04-03 12:08:34"
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/ip_whitelist/{ip_white}" : {
+      "get" : {
+        "tags" : [ "Collections > Whitelist IP" ],
+        "summary" : "Get a Whitelist by ip",
+        "parameters" : [ {
+          "name" : "ip_white",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 09:58:02 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : {
+                  "message" : "item not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/ip_blacklist/{ip_address}" : {
+      "get" : {
+        "tags" : [ "Collections > Blacklist IP" ],
+        "summary" : "Get a blacklist ip by ip_address",
+        "parameters" : [ {
+          "name" : "ip_address",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 10:04:50 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : {
+                  "message" : "item not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/did_provider" : {
+      "get" : {
+        "tags" : [ "Collections > Virtual Phone Number" ],
+        "summary" : "Get all Virtual Phone Number",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 10:08:44 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 4,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 3,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 5,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 5,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 5,
+                  "no_lines" : 1,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 2,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 2,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 4,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "Robert tsarukyan",
+                  "lines" : 1,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 3,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 3,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 1,
+                  "notes" : "",
+                  "lines" : 2,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 2,
+                  "notes" : "",
+                  "lines" : 5,
+                  "no_lines" : 0,
+                  "phone_number" : null,
+                  "template" : null
+                }, {
+                  "provider" : 2,
+                  "notes" : "vonage_test",
+                  "lines" : 4,
+                  "no_lines" : 0,
+                  "phone_number" : "15815330100",
+                  "template" : 44
+                }, {
+                  "provider" : 2,
+                  "notes" : "",
+                  "lines" : 5,
+                  "no_lines" : 0,
+                  "phone_number" : "37410710707",
+                  "template" : 21
+                }, {
+                  "provider" : 2,
+                  "notes" : "",
+                  "lines" : 7,
+                  "no_lines" : 0,
+                  "phone_number" : "37411710101",
+                  "template" : 10
+                }, {
+                  "provider" : 2,
+                  "notes" : "sip.tg",
+                  "lines" : 2,
+                  "no_lines" : 0,
+                  "phone_number" : "37477530767",
+                  "template" : 45
+                }, {
+                  "provider" : 2,
+                  "notes" : "VIVA",
+                  "lines" : 5,
+                  "no_lines" : 0,
+                  "phone_number" : "37498268374",
+                  "template" : 27
+                }, {
+                  "provider" : 2,
+                  "notes" : "",
+                  "lines" : 5,
+                  "no_lines" : 0,
+                  "phone_number" : "79250870100",
+                  "template" : 18
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/did_provider/{virtual_phone}" : {
+      "get" : {
+        "tags" : [ "Collections > Virtual Phone Number" ],
+        "summary" : "Get a Virtual Phone Number by phone_number",
+        "parameters" : [ {
+          "name" : "virtual_phone",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "headers" : {
+              "Server" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "nginx"
+                }
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "Wed, 03 Apr 2024 10:13:16 GMT"
+                }
+              },
+              "Content-Type" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "application/json"
+                }
+              },
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "chunked"
+                }
+              },
+              "Connection" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "keep-alive"
+                }
+              },
+              "Cache-Control" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "private, must-revalidate"
+                }
+              },
+              "pragma" : {
+                "schema" : {
+                  "type" : "string",
+                  "example" : "no-cache"
+                }
+              },
+              "expires" : {
+                "schema" : {
+                  "type" : "number",
+                  "example" : "-1"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "example" : [ {
+                  "provider" : 2,
+                  "notes" : "",
+                  "lines" : 7,
+                  "no_lines" : 0,
+                  "phone_number" : "37411710101",
+                  "template" : 10
+                } ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

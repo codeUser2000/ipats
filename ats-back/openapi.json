@@ -1,0 +1,155 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ATS-API Copy",
+    "description": "# 📄 Get started here\n\nThe ATS.M provides API products, tools, and resources that enable you to control your calls.\n\n## **Getting started guide**\n\nTo start using the ATS.AM API's, -\n\n- You must use a valid Bearer token to authenticate API requests. Include the token in the `Authorization` header of your HTTPS request\n    \n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n    \n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\nThe ATS.AM API uses Bearer token for authentication.\n\nYou must include an Bearer token in each request.\n\n### Authentication error response\n\nIf an Bearer token is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n## Rate and usage limits\n\nAPI access rate limits apply at a per-API key basis in unit time. The limit is 300 requests per minute. Also, depending on your plan, you may have usage limits. If you exceed either limit, your request will return an HTTP 429 Too Many Requests status code.\n\nEach API response returns the following set of headers to help you identify your use status:\n\n| Header | Description |\n| --- | --- |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per minute. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |\n\n### 503 response\n\nAn HTTP `503` response from our servers indicates there is an unexpected spike in API access traffic. The server is usually operational within the next five minutes. If the outage persists or you receive any other form of an HTTP `5XX` error, [contact support](https://support.postman.com/hc/en-us/requests/new/).",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://account.ats.am"
+    }
+  ],
+  "paths": {
+    "/docs/api/v1/callback": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Start Call",
+        "description": "## **Success**\n\n``` json\n{\n    \"key\": \"0000000000.0000\"\n}\n\n ```",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "185f8db32271fe25f561a"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "37444720101"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "37411720101"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/docs/api/v1/history": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Record History",
+        "description": "## **Success**\n\n``` json\n{\n    \"numFound\": 1,\n    \"start\": 0,\n    \"numFoundExact\": true,\n    \"docs\": [\n        {\n            \"endz\": \"2023-08-25T04:26:29.573Z\",\n            \"duration\": 0,\n            \"linkedid\": \"1692937552.1499787\",\n            \"extension\": \"3256555-3958655\",\n            \"disposition\": \"NO ANSWER\",\n            \"ext_num\": \"37444720101\",\n            \"start\": \"2023-08-25T08:25:52Z\",\n            \"destination\": \"-044598565\",\n            \"recday\": \"0\",\n            \"uniqueid\": \"1692937552.1445499\",\n            \"status\": \"Out Call\"\n        },\n    ]\n}\n\n ```\n\n## Error - 400\n\n``` json\n//wrong  dateStart\n{\n    \"message\": \"dateStart should be in Y-M-D format\"\n}\n//wrong  dateEnd\n{\n    \"message\": \"dateEnd should be in Y-M-D format\"\n}\n\n ```",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "185f8db32271fe25f561a"
+          },
+          {
+            "name": "dateStart",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2024-07-09"
+          },
+          {
+            "name": "dateEnd",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2024-07-10"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "10"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/docs/api/v1/call-record": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Download api",
+        "description": "## **Success**\n\nresponse - Downloads the file\n\n## Error - 404\n\n``` json\n{\n    \"message\": \"Not such file\"\n}\n\n ```",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "example": "0000000000.000"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "185f8db32271fe25f561a"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

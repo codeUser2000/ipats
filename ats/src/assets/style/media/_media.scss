@@ -1,0 +1,54 @@
+@media (pointer: coarse) {
+  @import "pointer";
+}
+
+@media only screen and (max-width: 1800px) and (min-width: 1400px){
+  .header{
+    padding:0 150px;
+  }
+
+}
+@media only screen and (max-width: 1800px) and (min-width: 1400px){
+  .select_lang{
+    right: 185px;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .header {
+    padding: 0 60px 0 59px;
+  }
+}
+
+@media only screen and (max-width: 1170px) {
+  @import "mx1170";
+}
+
+@media only screen and (max-width: 1024px) {
+  .main {
+    .operator_image {
+      width: 100px;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  @import "mx992";
+}
+
+@media only screen and (max-width: 819px) {
+  .header div figure {
+    width: 130px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  @import "mx768";
+}
+
+@media only screen and (max-width: 560px) {
+  @import "mx560";
+}
+
+@media only screen and (max-width: 375px) {
+  @import "mx375";
+}

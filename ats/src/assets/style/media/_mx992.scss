@@ -1,0 +1,363 @@
+.header {
+  height: 110px;
+  ._child {
+    position: fixed;
+    border-bottom: 2px solid #cccccc;
+    background: white;
+    padding: 0;
+    width: 340px;
+    top: 109px;
+    box-shadow: 0 20px 26px -7px rgba(0, 0, 0, 0.75);
+  }
+  div {
+    margin-top: 15px;
+
+    figure {
+      width: 195px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &_nav {
+    li {
+      margin: 0 9px;
+
+      img {
+        margin-right: 5px;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.main .services > div:first-child .service_block h3, .main .services > div:first-child .crm_block h3, .main .integration > div:first-child .service_block h3, .main .integration > div:first-child .crm_block h3, .main .crm > div:first-child .service_block h3, .main .crm > div:first-child .crm_block h3 {
+  font-size: 24px;
+}
+
+.main {
+  margin-top: 135px;
+
+  .calculator {
+    .price_block {
+      flex-direction: column;
+    }
+    .p-num-prices--panel{
+      width: 100%;
+      margin-top: 20px;
+      margin-left: 0;
+    }
+  }
+
+  .main_container {
+    padding: 0 100px;
+    &.service_host_block{
+      padding: 0;
+    }
+  }
+
+  .about {
+    h3 {
+      font-size: 24px;
+      line-height: 26px;
+    }
+  }
+
+  .new-service {
+    flex-direction: row;
+
+    .service_host_block {
+      height: 100%;
+      border: none;
+
+      div {
+        border: none;
+      }
+
+      p, h3 {
+        color: black;
+      }
+
+    }
+  }
+
+  .carousel_banner_img_block {
+    justify-content: space-between;
+  }
+
+  .carousel_banner_2 {
+    min-height: 275px;
+
+    figure {
+      width: 90px;
+      height: 90px;
+      padding: 0;
+
+      img {
+        width: 90px;
+        height: 90px;
+      }
+    }
+
+    &.ishome {
+      h4 {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+
+      .gradient {
+
+      }
+
+      .carousel_banner_dev {
+        color: white; /* Text color */
+        font-size: 24px;
+        //mask-image: linear-gradient(to right, black, transparent);
+        //-webkit-mask-image: linear-gradient(to right, black, transparent); /* For WebKit browsers */
+      }
+
+      .carousel_banner_p {
+        .ql-cursor {
+          display: none;
+        }
+
+        &.text_center {
+          p {
+            font-size: 13px;
+            margin: 0;
+            text-align: left;
+          }
+        }
+      }
+
+      .slick-slide.slick-current {
+        width: 480px !important;
+        margin-left: 65px;
+
+      }
+
+      figure {
+        width: 110px;
+        height: 110px;
+
+        img {
+          width: 110px;
+          height: 110px;
+        }
+      }
+
+      .carousel_banner_img_block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 130px;
+        overflow: hidden;
+      }
+    }
+
+
+    p {
+      font-family: Open Sans, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 18px;
+      text-align: left;
+      overflow: hidden;
+      margin: 0;
+    }
+  }
+
+  .client {
+    padding: 0
+  }
+
+  .top_banner {
+    min-height: 210px;
+    width: 100%;
+    height: 255px;
+    margin-bottom: 25px;
+
+    div:first-child {
+      width: 45%;
+      padding: 0;
+
+      h3 {
+        font-family: Lato, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: left;
+      }
+    }
+
+    &_p {
+      font-family: Open Sans, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    div:last-child {
+      width: 50%;
+    }
+
+    &_img {
+      display: block;
+      object-fit: cover;
+      object-position: right;
+      width: 100%;
+      border-radius: 23px 5px 5px 23px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  //.integration,
+  //.developer {
+  //  flex-direction: column;
+  //
+  //  & > div:first-child {
+  //    width: 100%;
+  //
+  //    .dev {
+  //      width: 100%;
+  //      border: none;
+  //      padding: 0;
+  //
+  //      p {
+  //        font-family: Open Sans, sans-serif;
+  //        font-size: 16px;
+  //        font-weight: 400;
+  //        line-height: 18px;
+  //        text-align: left;
+  //        margin-top: 10px;
+  //      }
+  //    }
+  //  }
+  //
+  //  & > div:last-child {
+  //    width: 100%;
+  //
+  //    .connect {
+  //      width: 100%
+  //    }
+  //  }
+  //}
+
+  .services,
+  .crm {
+
+  }
+
+  .images {
+    display: grid;
+    grid-template-rows: 1fr 1fr; /* Creates two rows of equal height */
+    grid-template-columns: repeat(5, 1fr); /* Creates six columns of equal width */
+    gap: 10px; /* Adds space between grid items */
+    figure {
+      width: 100%;
+    }
+  }
+
+  .integration {
+    div {
+      .crm_item {
+        padding: 30px 5px !important;
+        padding-bottom: 0 !important;
+      }
+
+    }
+
+    div:last-child {
+      .crm_item div p {
+        overflow: hidden;
+        font-family: Open Sans, sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        text-align: left;
+      }
+    }
+
+  }
+
+  .services {
+
+    & > div:last-child {
+      width: 100%;
+
+      .service_block {
+        .carousel_banner_service {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          gap: 5px;
+        }
+      }
+
+    }
+  }
+}
+.header nav {
+  .select_lang {
+    /* left: 25px; */
+    position: fixed;
+    padding: 2px 4px;
+    /* width: 135px; */
+    top: 14px;
+
+    & > div {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .lang_select {
+      padding-left: 6px;
+
+      li {
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+}
+
+.new-service.services {
+  .services_install {
+    width: 100%;
+    display: flex;
+    flex-direction: row !important;
+
+    div:first-child {
+      margin-right: 5px;
+    }
+  }
+}
+
+.footer {
+  .download {
+    color: white;
+
+    div {
+      width: 380px
+    }
+  }
+}
+
+.main .services > div:first-child .service_block, .main .services > div:first-child .crm_block, .main .integration > div:first-child .service_block, .main .integration > div:first-child .crm_block, .main .crm > div:first-child .service_block, .main .crm > div:first-child .crm_block {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-radius: 20px;
+  padding: 25px 18px 33px 18px;
+}
+.header .header_nav_child {
+  top: 105px;
+}
