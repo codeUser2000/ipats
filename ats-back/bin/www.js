@@ -12,9 +12,9 @@ const debug = Debug('crm:server');
  * Get port from environment and store in Express.
  */
 
-const portHttps = normalizePort(process.env.PORT || '443');
+const portHttps = normalizePort(process.env.PORT || '4003');
 
-const port = normalizePort(process.env.PORT || '4000');
+const port = normalizePort(process.env.PORT || '4003');
 
 // const port = normalizePort(process.env.PORT || '80');
 // const port = normalizePort(process.env.PORT || '4000');
