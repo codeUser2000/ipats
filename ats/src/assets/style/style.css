@@ -1647,6 +1647,7 @@ h1, h3, h3 {
   height: 60px;
   width: 60px;
   cursor: pointer;
+  pointer-events: all;
   animation: tilt-shaking 2.83s infinite;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
