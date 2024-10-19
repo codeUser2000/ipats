@@ -12,7 +12,7 @@ import {
     Member,
     MemberTranslate,
     Reviews,
-    WhoUse
+    WhoUse,IpATSRegister
 } from "../models/index.js";
 import {lang} from "../services/lang.js";
 import Home from "../models/Home.js";
@@ -54,6 +54,21 @@ class HomeController {
 
 
     //----SERVICE-----//
+    static register = async (req, res, next) => {
+        try {
+            const {message,phone,email,company,fullName} = req.body
+            await IpATSRegister.create({fullName:fullName.toString(),message:message.toString(),phone:phone.toString(),email:email.toString(),company:company.toString()})
+            Email.sendCompanyEmail(fullName,message,email,phone,company)
+            let whereOptions = {}
+
+
+
+
+        } catch (e) {
+            console.log(e)
+            next(e)
+        }
+    }
     static contactUs = async (req, res, next) => {
         try {
             const {page = 1, limit = 10, search='',startTime,endTime} = req.query
