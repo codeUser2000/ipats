@@ -2,7 +2,7 @@ import express from 'express';
 import MemberController from "../controller/MemberController.js";
 import uploader from "../middlewares/fileUploader.js";
 import HomeController from "../controller/HomeController.js";
-import {limiter} from "../middlewares/limit";
+import {limiter} from "../middlewares/limit.js";
 
 
 

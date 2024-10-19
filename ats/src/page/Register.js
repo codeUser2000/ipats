@@ -37,6 +37,7 @@ function Register(props) {
                 toast.error('Please fill all rows');
                 return;
             }
+            console.log(form)
 
         } catch (e) {
 

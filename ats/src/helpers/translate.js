@@ -65,7 +65,7 @@ export const homeD = {
 export const buttons = {
     top:['','Get free access','Бесплатный доступ','Օգտվել անվճար'],
     sign:['','Sign in','Войти','Մուտք գործել'],
-    reg:['','Register for free','Беспл․ регистрация','Գրանցվեք անվճար'],
+    reg:['','Submit an application','Подать заявку','Գրանցվեք անվճար'],
     request:['','Request integration','Запросить интеграцию','Ինտեգրման հայտ'],
     forget:['','Forget password?','Забыли пароль?','Մոռացե՞լ եք գաղտնաբառը'],
     email:['','Your phone number','Ваш номер телефона','Հեռախոսահամար'],
