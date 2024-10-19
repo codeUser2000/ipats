@@ -39,8 +39,8 @@ IpATSRegister.init({
 }, {
     sequelize,
     timestamps:true,
-    modelName: 'admin',
-    tableName: 'admin'
+    modelName: 'ip_ats_reg',
+    tableName: 'ip_ats_reg'
 });
 
 
