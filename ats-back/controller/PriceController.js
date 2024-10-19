@@ -7,62 +7,6 @@ import Discount from "../models/Discount.js";
 
 class PriceController {
 
-    static create = async (req, res, next) => {
-        try {
-            const {day,status} = req.body
-            const plus = await Price.create({sname:req.body.descEng,status,days:day})
-            for (let langElement of lang) {
-                await PriceTranslate.create({
-                    priceId:plus.id,
-                    langId:langElement.id,
-                    title:req.body['desc'+langElement.lang],
-                    price:req.body['price'+langElement.lang],
-                })
-            }
-
-            res.json({
-                status: 'ok',
-            });
-
-
-        } catch (e) {
-            console.log(e)
-            next(e)
-        }
-    }
-    static edit = async (req, res, next) => {
-        try {
-            await Price.update({status:req.body.status,days:req.body.day}, {where: {id:req.body.id}})
-            for (let langElement of lang) {
-                await PriceTranslate.update({
-                    title: req.body['desc' + langElement.lang],
-                    price: req.body['price' + langElement.lang],
-                }, {where: {priceId: req.body.id, langId: langElement.id}})
-            }
-            res.json({
-                status: 'ok',
-            });
-
-
-        } catch (e) {
-            console.log(e)
-            next(e)
-        }
-    }
-    static delete = async (req, res, next) => {
-        try {
-            const {id} = req.query
-            await Price.destroy({where:{id}})
-            res.json({
-                status: 'ok',
-            });
-
-
-        } catch (e) {
-            console.log(e)
-            next(e)
-        }
-    }
     static get = async (req, res, next) => {
         try {
             const {lang} = req.query

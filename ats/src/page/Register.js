@@ -1,38 +1,47 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {Link, useNavigate, useLocation} from "react-router-dom";
-import {buttons, lang, log_reg} from "../helpers/translate";
+import {Link, useLocation, useNavigate} from "react-router-dom";
+import {buttons, lang,input, log_reg} from "../helpers/translate";
 import email from '../assets/img/icon/UserIcon.svg'
-import userIcon from "../assets/img/icon/user.svg";
 import plus from "../assets/img/icon/plus.png";
 import {toast} from "react-toastify";
-import axios from "axios";
 import x from "../assets/img/icon/x.svg";
 import InputMask from 'react-input-mask';
-import Utils from "../helpers/Utils";
 import {useParams} from "react-router";
-
+import 'react-phone-number-input/style.css'
+import PhoneInput, {isValidPhoneNumber} from "react-phone-number-input";
+import company from '../assets/img/icon/img.avif'
+import mail from '../assets/img/icon/img_1.avif'
+import department from '../assets/img/icon/department.avif'
 function Register(props) {
     const navigate = useNavigate()
     const location = useLocation()
-    const [form, setForm] = useState('')
+    const [form, setForm] = useState({
+        company: '',
+        phone: '',
+        email: '',
+        position: '',
+        fullName: ''
+    })
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-    const params = useParams()
+    const params = useParams();
+    const handleChange = useCallback((name, value) => {
+        setForm((prev) => ({...prev, [name]: value}))
+    }, [])
     const handleRegister = useCallback(async () => {
         try {
-            if (!form) {
-                toast.error('Enter phone and password');
+            if (!form.phone || !isValidPhoneNumber(form.phone)) {
+                toast.error('Phone is not valid');
                 return;
             }
-            let newPhone = form.replaceAll(' ', '').replace('(', '').replace(')', '')
-            await axios.post('https://account.ats.am/users/register_user', {
-                phone: newPhone,
-            });
+            if (!form.company || !form.email || !form.fullName || !form.position) {
+                toast.error('Please fill all rows');
+                return;
+            }
 
-            navigate(windowWidth > 786?'?phone=' + newPhone+'#registered':'/registered?phone=' + newPhone)
         } catch (e) {
 
         }
-    }, [form,windowWidth])
+    }, [form, windowWidth])
     useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
@@ -50,14 +59,14 @@ function Register(props) {
     if (windowWidth > 786) {
         return (
 
-            <div className="big_screen" >
+            <div className="big_screen">
                 <div className="login_container"/>
                 <div className="login">
                     <div className="login_header">
                         <p>
                             {log_reg.sign[lang[params?.lang || 'en']]}
                         </p>
-                        <span onClick={removeHash} style={{cursor:'pointer'}}>
+                        <span onClick={removeHash} style={{cursor: 'pointer'}}>
                             <img src={x} alt=''/>
 
                         </span>
@@ -67,25 +76,49 @@ function Register(props) {
                             <div className="login_block_input">
                                 <div>
                                     <label>
+                                        <img width="17" height="17" src={company} alt=""/>
+                                        <input placeholder={input.company[lang[params?.lang || 'en']]}
+                                               onChange={(ev) => handleChange('company', ev.target.value)}
+                                               value={form.company}/>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
                                         <img src={email} alt=""/>
-                                        <InputMask
-                                            mask="374 (99) 999999"
-                                            maskChar="_"
+                                        <input placeholder={input.name[lang[params?.lang || 'en']]}
+                                               onChange={(ev) => handleChange('fullName', ev.target.value)}
+                                               value={form.fullName}/>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <img width="17" height="17" src={department} alt=""/>
+                                        <input placeholder={input.position[lang[params?.lang || 'en']]}
+                                               onChange={(ev) => handleChange('position', ev.target.value)}
+                                               value={form.position}/>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <img width="17" height="17" src={mail} alt=""/>
+                                        <input placeholder={input.email[lang[params?.lang || 'en']]}
+                                               onChange={(ev) => handleChange('email', ev.target.value)}
+                                               value={form.email}/>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <PhoneInput
+                                            international
+                                            defaultCountry="US"
                                             placeholder={buttons.email[lang[params?.lang || 'en']]}
-                                            onChange={(ev) => setForm(ev.target.value)}
-                                            value={form}
-                                        >
-                                            {(inputProps) => <input {...inputProps} />}
-                                        </InputMask>
+                                            value={form.phone}
+                                            onChange={(ev) => handleChange('phone',ev)}/>
                                     </label>
                                 </div>
                                 <div>
                                     <p>{log_reg.desc[lang[params?.lang || 'en'] || 1]}</p>
                                 </div>
-
-                            </div>
-                            <div>
-                                <p className="login_block_text">{log_reg.request[lang[params?.lang || 'en'] || 1]}</p>
 
                             </div>
                         </div>
@@ -95,15 +128,6 @@ function Register(props) {
                                     <img src={plus} alt=''/>
                                     {buttons.reg[lang[params?.lang || 'en'] || 1]}
                                 </button>
-                            </div>
-                            <div className="d-flex align-items-center">
-                                <Link to="#login" className="simple_btn">
-                                    <img src={userIcon} alt="Go to login"/>
-                                    <span>{buttons.sign[lang[params?.lang || 'en'] || 1]}</span>
-                                </Link>
-                                <Link to="#drop">
-                                    {buttons.forget[lang[params?.lang || 'en'] || 1]}
-                                </Link>
                             </div>
 
                         </div>
@@ -157,19 +181,7 @@ function Register(props) {
 
                         </div>
                     </div>
-                    <div>
 
-                        <div className="d-flex align-items-center">
-                            <Link to={`/${Utils.lang()}/login`} className="simple_btn">
-                                <img src={userIcon} alt="Go to login"/>
-                                <span>{buttons.sign[lang[params?.lang || 'en'] || 1]}</span>
-                            </Link>
-                            <Link to={`/${Utils.lang()}/drop`}>
-                                {buttons.forget[lang[params?.lang || 'en'] || 1]}
-                            </Link>
-                        </div>
-
-                    </div>
                 </div>
             </div>
 

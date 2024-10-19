@@ -18,7 +18,7 @@ function AsideMenu({visible, setVisible}) {
     const params = useParams()
     const navigate = useNavigate()
     const handleLangChange = useCallback((lang,val) => {
-        localStorage.setItem('atsLang', lang)
+        localStorage.setItem('ipatsLang', lang)
         let path = location.pathname
         navigate(path.replace(params.lang, val))
         // window.location.reload()
@@ -29,16 +29,12 @@ function AsideMenu({visible, setVisible}) {
                 <div className="select_lang">
                     <div className="selected_lang">
                         <img
-                            src={+lang[params?.lang || 'en'] === 2 ? ru : arm}
+                            src={+lang[params?.lang || 'en'] === 2 ? ru : us}
                             alt=""/>
-                        <span>{+lang[params?.lang || 'en'] === 1 ? 'English' : +lang[params?.lang || 'en'] === 2 ? 'Русский' : 'Հայերեն'}</span>
+                        <span>{+lang[params?.lang || 'en'] === 1 ? 'English' :  'Русский' }</span>
                         <img className="position-absolute" style={{right:0,top:5}} src={down} alt=""/>
                     </div>
                     <ul className="lang_select">
-                        {+lang[params?.lang || 'en'] !== 3 ?
-                            <li onClick={() => handleLangChange(3,'en')}><img src={arm} alt=""/>
-                                <span>Հայերեն</span>
-                            </li> : null}
                         {+lang[params?.lang || 'en'] !== 2 ?
                             <li onClick={() => handleLangChange(2,'ru')}><img src={ru} alt=""/>
                                 <span>Русский</span>
@@ -55,7 +51,7 @@ function AsideMenu({visible, setVisible}) {
                 <nav>
                     <ul className="aside_nav">
                         {menu.map((l, i) => {
-                            if (i <= 5) {
+                            if (i < 5) {
                                 if (l.isParent) {
                                     return (
                                         <li key={l.id} className="w-100 p-0">
@@ -109,13 +105,7 @@ function AsideMenu({visible, setVisible}) {
                 </nav>
             </div>
             <div className="aside_auth">
-                <h3>
-                    {homeD.login[lang[params?.lang || 'en'] || 1]}
-                </h3>
-                <Link to={`/${Utils.lang()}/login`} className="simple_btn">
-                    <img src={userIcon} alt={"Go to Login"}/>
-                    <span>{buttons.sign[lang[params?.lang || 'en'] || 1]}</span>
-                </Link>
+
                 <h3>
                     {homeD.register[lang[params?.lang || 'en'] || 1]}
                 </h3>

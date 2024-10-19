@@ -13,23 +13,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 class AppController {
 
-    static create = async (req, res, next) => {
-        try {
-
-            const {link, type} = req.body
-
-            await AppDownload.create({link, type})
-
-            res.json({
-                status: 'ok',
-            });
-
-
-        } catch (e) {
-            console.log(e)
-            next(e)
-        }
-    }
     static edit = async (req, res, next) => {
         try {
             const {file} = req

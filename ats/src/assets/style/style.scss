@@ -1502,15 +1502,15 @@ p {
 
   .login {
     background: white;
-    width: 800px;
-    height: 310px;
+    width: 515px;
+    height: 450px;
     position: fixed;
     z-index: 100000;
-    top: 130px;
+    top: 65px;
     left: 0;
     right: 0;
     margin: auto;
-    box-shadow: 0 0 20px 0 #00000040;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2509803922);
     border-radius: 20px;
     padding: 20px;
     overflow: hidden;
@@ -1550,7 +1550,7 @@ p {
         }
 
         & > div {
-          width: 49%;
+          width: 90%;
 
         }
       }
@@ -1668,7 +1668,7 @@ p {
 }
 
 .footer {
-  min-height: 200px;
+  min-height: 150px;
   width: 100%;
   background: #0973B9;
 
@@ -1760,7 +1760,7 @@ p {
   cursor: pointer;
 
   &:hover {
-    height: 105px;
+    height: 80px;
 
   }
 
@@ -1770,7 +1770,7 @@ p {
     margin-bottom: 0;
     display: flex;
     flex-direction: column;
-    height: 70px;
+    height: 45px;
     justify-content: space-around;
   }
 

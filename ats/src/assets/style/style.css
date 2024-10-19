@@ -1330,11 +1330,11 @@ h1, h3, h3 {
 }
 .big_screen .login {
   background: white;
-  width: 800px;
-  height: 310px;
+  width: 515px;
+  height: 450px;
   position: fixed;
   z-index: 100000;
-  top: 130px;
+  top: 65px;
   left: 0;
   right: 0;
   margin: auto;
@@ -1373,7 +1373,7 @@ h1, h3, h3 {
   align-items: flex-start;
 }
 .big_screen .login_block > div > div {
-  width: 49%;
+  width: 90%;
 }
 .big_screen .login_block_input input {
   outline: none;
@@ -1468,7 +1468,7 @@ h1, h3, h3 {
 }
 
 .footer {
-  min-height: 200px;
+  min-height: 150px;
   width: 100%;
   background: #0973B9;
 }
@@ -1545,7 +1545,7 @@ h1, h3, h3 {
   cursor: pointer;
 }
 .select_lang:hover {
-  height: 105px;
+  height: 80px;
 }
 .select_lang ul {
   padding: 0;
@@ -1553,7 +1553,7 @@ h1, h3, h3 {
   margin-bottom: 0;
   display: flex;
   flex-direction: column;
-  height: 70px;
+  height: 45px;
   justify-content: space-around;
 }
 .select_lang div {

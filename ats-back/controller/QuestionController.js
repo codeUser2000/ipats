@@ -14,68 +14,6 @@ import Home from "../models/Home.js";
 const {JWT_SECRET_ACCESS, JWT_SECRET_REFRESH} = process.env;
 
 class QuestionController {
-    static create = async (req, res, next) => {
-        try {
-            const {status} = req.body
-            const member = await Questions.create({status})
-            for (let langElement of lang) {
-                await QuestionsTranslate.create({
-                    questionId: member.id,
-                    langId: langElement.id,
-                    title: req.body['title' + langElement.lang],
-                    desc: req.body['desc' + langElement.lang]
-                })
-            }
-            res.json({
-                status: 'ok',
-            });
-
-
-        } catch (e) {
-            console.log(e)
-            next(e)
-        }
-    }
-    static edit = async (req, res, next) => {
-        try {
-            const {id} = req.body
-
-            const {
-                status
-            } = req.body
-
-            await Questions.update({status}, {where: {id}})
-            for (let langElement of lang) {
-                await QuestionsTranslate.update({
-                    title: req.body['title' + langElement.lang],
-                    desc: req.body['desc' + langElement.lang]
-                }, {where: {questionId: id, langId: langElement.id,}})
-            }
-
-            res.json({
-                status: 'ok',
-            });
-
-
-        } catch (e) {
-            console.log(e)
-            next(e)
-        }
-    }
-    static deleteQuest = async (req, res, next) => {
-        try {
-            const {id} = req.body
-            await Questions.destroy({where: {id}})
-            res.json({
-                status: 'ok',
-            });
-
-
-        } catch (e) {
-            console.log(e)
-            next(e)
-        }
-    }
     static get = async (req, res, next) => {
         try {
             const {lang} = req.query

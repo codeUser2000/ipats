@@ -5,9 +5,9 @@ import {Link, NavLink} from "react-router-dom";
 function NotFound(props) {
     let [lang,setLang] = useState('en')
     useEffect(() => {
-        if(+localStorage.getItem('atsLang') === 1){
+        if(+localStorage.getItem('ipatsLang') === 1){
             setLang('en')
-        }else if(+localStorage.getItem('atsLang') === 2){
+        }else if(+localStorage.getItem('ipatsLang') === 2){
             setLang('ru')
         }else{
             setLang('hy')

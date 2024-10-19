@@ -172,7 +172,7 @@ function Developers(props) {
                               </p>
                               <a href="https://ats.am/ATS-API.postman_collection.json" onClick={handleClick}>
                                   <img src={postman} style={{marginRight:5}} alt="Go to API document"/>
-                                  {install.postmanL[localStorage.getItem('atsLang') || 1]}
+                                  {install.postmanL[localStorage.getItem('ipatsLang') || 1]}
 
                               </a>
                           </div> : null}

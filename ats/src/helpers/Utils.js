@@ -41,9 +41,9 @@ class Utils {
     }
     static lang() {
         let lang = ''
-        if(+localStorage.getItem('atsLang') === 3){
+        if(+localStorage.getItem('ipatsLang') === 3){
             lang = 'hy'
-        }else if(+localStorage.getItem('atsLang') === 2){
+        }else if(+localStorage.getItem('ipatsLang') === 2){
             lang = 'ru'
         }else{
             lang = 'en'

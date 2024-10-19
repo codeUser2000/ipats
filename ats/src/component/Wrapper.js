@@ -20,8 +20,6 @@ import us from '../assets/img/icon/us.svg'
 import down from '../assets/img/icon/down.svg'
 import Register from "../page/Register";
 import {useLocation, useNavigate, useParams} from "react-router";
-import Login from "../page/Login";
-import DropPass from "../page/DropPass";
 import Confirm from "../page/Confirm";
 import telegram from '../assets/img/icon/telegram.avif'
 import call from '../assets/img/icon/call-svgrepo-com.svg'
@@ -37,14 +35,13 @@ function Wrapper({children}) {
         localStorage.setItem('ats_link', link)
     }, [])
     const handleLangChange = useCallback((lang, val) => {
-        localStorage.setItem('atsLang', lang)
+        localStorage.setItem('ipatsLang', lang)
         let path = location.pathname
         navigate(path.replace(params.lang, val))
-        // window.location.reload()
     }, [params, location.pathname])
     useEffect(() => {
-        if (!localStorage.getItem('atsLang')) {
-            localStorage.setItem('atsLang', '1')
+        if (!localStorage.getItem('ipatsLang')) {
+            localStorage.setItem('ipatsLang', '1')
         }
     }, []);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -60,35 +57,20 @@ function Wrapper({children}) {
         };
     }, []);
     const [showRegister, setShowRegister] = useState(false);
-    const [showDrop, setShowDrop] = useState(false);
-    const [showLogin, setShowLogin] = useState(false);
     const [showConfirm, setShowConfirm] = useState(false);
 
     useEffect(() => {
         if (location.hash === '#register') {
             setShowRegister(true);
-            setShowLogin(false)
-            setShowDrop(false);
             setShowConfirm(false);
         } else if (location.hash === '#drop') {
-            setShowDrop(true);
             setShowRegister(false);
-            setShowLogin(false)
             setShowConfirm(false)
-        } else if (location.hash === '#login') {
-            setShowLogin(true)
-            setShowRegister(false);
-            setShowDrop(false);
-            setShowConfirm(false);
         } else if (location.hash === '#registered') {
-            setShowLogin(false)
             setShowRegister(false);
-            setShowDrop(false);
             setShowConfirm(true);
         } else {
             setShowRegister(false);
-            setShowLogin(false)
-            setShowDrop(false);
             setShowConfirm(false);
         }
 
@@ -112,18 +94,9 @@ function Wrapper({children}) {
                                         <img src={menu[4].icon} alt=""/>
                                         {menu[4].trans[lang[params?.lang || 'en'] || 1]}
                                     </Link></li>
-                                    <li onClick={() => handleSetLink(menu[5].link)}><Link
-                                        to={`/${Utils.lang()}${menu[5].link}`}>
-                                        <img src={menu[5].icon} alt=""/>
-                                        {menu[5].trans[lang[params?.lang || 'en'] || 1]}
-                                    </Link></li>
                                 </ul>
                                 <section className="header_nav nav_bottom">
-                                    <Link to={`/${Utils.lang()}${menu[7].link}`} className="simple_btn">
-                                        <img src={userIcon} alt={"Go to" + menu[7].link}/>
-                                        <span>{buttons.sign[lang[params?.lang || 'en'] || 1]}</span>
-                                    </Link>
-                                    <Link to={`/${Utils.lang()}${menu[6].link}`} className="simple_btn_outline">
+                                    <Link to={`${menu[5].link}`} className="simple_btn_outline">
                                         <span>{buttons.top[lang[params?.lang || 'en'] || 1]}</span>
                                     </Link>
                                     <p style={{width: 100}}/>
@@ -136,9 +109,6 @@ function Wrapper({children}) {
                                         <img className="down" src={down} alt=""/>
                                     </div>
                                     <ul className="lang_select">
-                                        {+lang[params?.lang || 'en'] !== 3 ?
-                                            <li onClick={() => handleLangChange(3, 'hy')}><img src={arm} alt=""/>
-                                            </li> : null}
                                         {+lang[params?.lang || 'en'] !== 2 ?
                                             <li onClick={() => handleLangChange(2, 'ru')}><img src={ru} alt=""/>
                                             </li> : null}
@@ -213,7 +183,7 @@ function Wrapper({children}) {
                         </Link>
                     </figure>
                     <div className="m-0 align-items-center">
-                        <Link to={`/${Utils.lang()}${menu[6].link}`} className="simple_btn_outline">
+                        <Link to={`/${Utils.lang()}${menu[5].link}`} className="simple_btn_outline">
                             <span>{buttons.top[lang[params?.lang || 'en'] || 1]}</span>
                         </Link>
                         <a className="call_svg" href="tel:37444720101"><img src={call} alt='Make a call'/></a>
@@ -243,9 +213,10 @@ function Wrapper({children}) {
                                         <li><Link
                                             to={`/${Utils.lang()}/about`}>{footer.check[lang[params?.lang || 'en'] || 1]}</Link>
                                         </li>
-                                        <li><Link
-                                            to={`/${Utils.lang()}/partner`}>{footer.partner[lang[params?.lang || 'en'] || 1]}</Link>
-                                        </li>
+                                        {/*<li>*/}
+                                            {/*<Link*/}
+                                            {/*// to={`/${Utils.lang()}/partner`}>{footer.partner[lang[params?.lang || 'en'] || 1]}</Link>*/}
+                                        {/*</li>*/}
 
                                         <li><Link
                                             to={`/${Utils.lang()}/crm`}>{footer.crm[lang[params?.lang || 'en'] || 1]}</Link>
@@ -260,15 +231,15 @@ function Wrapper({children}) {
                                     <ul>
 
                                         <li><Link
-                                            to={windowWidth > 786 ? '#register' : `/${Utils.lang()}/register`}>{footer.reg[localStorage.getItem('atsLang') || 1]}</Link>
+                                            to={windowWidth > 786 ? '#register' : `/${Utils.lang()}/register`}>{footer.reg[localStorage.getItem('ipatsLang') || 1]}</Link>
                                         </li>
 
                                         <li><Link
-                                            to={`/${Utils.lang()}/single_service/local`}>{footer.install[localStorage.getItem('atsLang') || 1]}</Link>
+                                            to={`/${Utils.lang()}/single_service/local`}>{footer.install[localStorage.getItem('ipatsLang') || 1]}</Link>
                                         </li>
 
                                         <li><Link
-                                            to={`/${Utils.lang()}/api_document`}>{footer.api[localStorage.getItem('atsLang') || 1]}</Link>
+                                            to={`/${Utils.lang()}/api_document`}>{footer.api[localStorage.getItem('ipatsLang') || 1]}</Link>
                                         </li>
 
                                     </ul>
@@ -278,18 +249,18 @@ function Wrapper({children}) {
 
                         </div>
                         {windowWidth <= 435 ? <p className="footer_text">
-                            {footer.copyright[localStorage.getItem('atsLang') || 1]} <Link
-                            to={`/${Utils.lang()}/about`}>{footer.learn[localStorage.getItem('atsLang') || 1]}</Link>
+                            {footer.copyright[localStorage.getItem('ipatsLang') || 1]} <Link
+                            to={`/${Utils.lang()}/about`}>{footer.learn[localStorage.getItem('ipatsLang') || 1]}</Link>
                         </p> : null}
                     </div>
                     <div className="col-md-6 col-xl-4 col-sm-6 download">
                         {windowWidth > 435 ? <div className="d-flex">
                             <div>
                                 <div className="p">
-                                    {homeD.download_wrapper[localStorage.getItem('atsLang') || 1]}
+                                    {homeD.download_wrapper[localStorage.getItem('ipatsLang') || 1]}
                                 </div>
                                 <span>
-                                    {homeD.download_desc[localStorage.getItem('atsLang') || 1]}
+                                    {homeD.download_desc[localStorage.getItem('ipatsLang') || 1]}
                                 </span>
                             </div>
                             <div style={{marginLeft: 20}} className="d-flex align-items-baseline icon">
@@ -306,27 +277,25 @@ function Wrapper({children}) {
                         </div> : null}
                     </div>
                 </div>
-                {windowWidth > 435 ? <div className="row copyright">
-                    <div className="col-md-9">
-                        <p className="footer_text">
-                            {footer.copyright[localStorage.getItem('atsLang') || 1]} <Link
-                            to={`/${Utils.lang()}/about`}>{footer.learn[localStorage.getItem('atsLang') || 1]}</Link>
-                        </p>
-                    </div>
-                    <div className="col-md-3 ">
-                        <figure>
-                            <img className="wi-150" src={copyRight} alt=''/>
-                        </figure>
-                    </div>
-                </div> : null}
+                {/*{windowWidth > 435 ? <div className="row copyright">*/}
+                {/*    <div className="col-md-9">*/}
+                {/*        <p className="footer_text">*/}
+                {/*            {footer.copyright[localStorage.getItem('ipatsLang') || 1]} <Link*/}
+                {/*            to={`/${Utils.lang()}/about`}>{footer.learn[localStorage.getItem('ipatsLang') || 1]}</Link>*/}
+                {/*        </p>*/}
+                {/*    </div>*/}
+                {/*    <div className="col-md-3 ">*/}
+                {/*        <figure>*/}
+                {/*            <img className="wi-150" src={copyRight} alt=''/>*/}
+                {/*        </figure>*/}
+                {/*    </div>*/}
+                {/*</div> : null}*/}
                 <div className="telegram_chat_block"><p className="chat_text">24/7</p>
                     <img className="telegram_chat" onClick={() => window.location.href = "https://t.me/ats_am_bot"}
                          src={telegram} alt=""/></div>
             </footer>
             {windowWidth >= 768 ? null : <AsideMenu setVisible={setMenu} visible={menuList}/>}
             {showRegister ? <Register/> : null}
-            {showLogin ? <Login/> : null}
-            {showDrop ? <DropPass/> : null}
             {showConfirm ? <Confirm/> : null}
         </>
     );

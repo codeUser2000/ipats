@@ -18,9 +18,7 @@ export const menu = [
     {id:4,icon:integration,link:'/crm',trans:['','Integrations','Интеграции','Ինտեգրումներ'],isParent:0},
     {id:3,icon:about,link:'/about',trans:['','About us','О нас','Մեր մասին'],isParent:0},
     {id:5,icon:developer,link:'/api_document',trans:['','Developers kit','API','API'],isParent:0},
-    {id:6,icon:partner,link:'/partner',trans:['','Partnership','Партнерство','Գործընկերներ'],isParent:0},
     {id:7,icon:partner,link:window.innerWidth > 786?'#register':'/register',trans:['','Sign in','Войти','Մուտք գործել'],isParent:0},
-    {id:8,icon:partner,link:window.innerWidth > 786?'#login':'/login',trans:['','Get free access','Бесплатный доступ','Անվճար մուտք'],isParent:0},
 
 ]
 export const menuPrice = {
@@ -91,8 +89,8 @@ export const log_reg = {
     reset:['','Reset your password','Сбросить пароль','Փոխել գաղտնաբառը'],
     sign:['','Use the 15-day free version','Воспользуйтесь 15-дневной бесплатной версией','Օգտվել 15օրյա անվճար տարբերակից'],
     request:['','If you already created a personal account?','Если вы уже создали личный кабинет?','Եթե ունեք անձնական հաշիվ'],
-    desc:['','We will use your phone number only for contact purposes',
-        'Мы будем использовать ваш номер телефона только для связи',
+    desc:['','We will use your phone number and mail only for contact purposes',
+        'Мы будем использовать ваш номер телефона и мейл только для связи',
         'Ձեր հեռախոսահամարը կօգտագործվի բացառապես կոնտակտային նպատակներով:'],
     descRes:['','We will use your phone number only for contact purposes',
         'Мы будем использовать ваш номер телефона только для связи',
@@ -113,6 +111,7 @@ export const input = {
         'Если у вас есть Telegram, вы получите код для подтверждения.Если нет, ждите СМС',
         'Եթե ունեք Telegram, ապա կստանաք կոդ՝ հաստատման համար, Եթե ոչ` սպասեք SMS հաղորդագրության'],
     name:['','Your full name','Имя фамилия','Անուն Ազգանուն'],
+    position:['','Your position','Ваша позиция','Անուն Ազգանուն'],
     company:['','Your company name','Имя компании','Կազմակերպության անվանում'],
     email:['','Your email','Электронная почта','էլ.փոստ'],
     phone:['','Your contact phone','Номер телефона','Կոնտակտային հեռախոսահամար'],
