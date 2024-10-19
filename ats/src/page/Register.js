@@ -28,6 +28,9 @@ function Register(props) {
     const handleChange = useCallback((name, value) => {
         setForm((prev) => ({...prev, [name]: value}))
     }, [])
+    const removeHash = () => {
+        navigate(location.pathname);
+    };
     const handleRegister = useCallback(async () => {
         try {
             if (!form.phone || !isValidPhoneNumber(form.phone)) {
@@ -39,6 +42,7 @@ function Register(props) {
                 return;
             }
             await Api.register(form)
+            removeHash()
             toast.success('Please check your mail')
         } catch (e) {
 
@@ -55,9 +59,7 @@ function Register(props) {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-    const removeHash = () => {
-        navigate(location.pathname);
-    };
+
     if (windowWidth > 786) {
         return (
 

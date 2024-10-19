@@ -25,7 +25,7 @@ class Email {
         const escapedData = escape(data.toString());
         return transporter.sendMail({
             from: `"IP-ATS" <monitoring@ats.am>`,
-            to: 'aida@ats.am',
+            to: 'info@ats.am',
             subject: subject.toString() +' '+ name.toString(),
             html: `<p>Email: ${creater.toString()}</p>
                    <p>Name: ${name}</p>
