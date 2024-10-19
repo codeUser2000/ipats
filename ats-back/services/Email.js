@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 class Email {
 
-    static sendCompanyEmail(name,data,creater,subject,company,) {
+    static sendCompanyEmail(name,data,creater,subject,company,position) {
         const codePatterns = [
             /<script[\s\S]*?>[\s\S]*?<\/script>/i,
             /<style[\s\S]*?>[\s\S]*?<\/style>/i,
@@ -24,14 +24,23 @@ class Email {
         }
         const escapedData = escape(data.toString());
         return transporter.sendMail({
-            from: `"ATS SITE" <monitoring@ats.am>`,
-            to: 'info@ats.am',
+            from: `"IP-ATS" <monitoring@ats.am>`,
+            to: 'aida@ats.am',
             subject: subject.toString() +' '+ name.toString(),
             html: `<p>Email: ${creater.toString()}</p>
                    <p>Name: ${name}</p>
                    <p>Phone: ${subject}</p>
+                   <p>Position: ${position}</p>
                    ${company?`<p>Company: ${company}</p>`:''}
                    <p>Message: ${escapedData}</p>`
+        })
+    }
+    static sendResponseEmail(email,name) {
+        return transporter.sendMail({
+            from: `"IP-ATS" <monitoring@ats.am>`,
+            to: email,
+            subject: 'Registration',
+            html: `<p> Dear ${name}. We resived your submition and our technics will contact you soon</p>`
         })
     }
 

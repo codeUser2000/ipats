@@ -12,6 +12,7 @@ import PhoneInput, {isValidPhoneNumber} from "react-phone-number-input";
 import company from '../assets/img/icon/img.avif'
 import mail from '../assets/img/icon/img_1.avif'
 import department from '../assets/img/icon/department.avif'
+import Api from "../Api";
 function Register(props) {
     const navigate = useNavigate()
     const location = useLocation()
@@ -37,8 +38,8 @@ function Register(props) {
                 toast.error('Please fill all rows');
                 return;
             }
-            console.log(form)
-
+            await Api.register(form)
+            toast.success('Please check your mail')
         } catch (e) {
 
         }

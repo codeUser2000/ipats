@@ -10,6 +10,9 @@ const api = axios.create({
 class Api {
 
 
+    static register(form) {
+        return api.post(`/member/register`,form)
+    }
     static getMember(lang) {
         return api.get(`/member/get?lang=${lang || '1'}`)
     }
