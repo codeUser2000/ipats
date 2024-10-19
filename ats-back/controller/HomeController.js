@@ -56,7 +56,7 @@ class HomeController {
     //----SERVICE-----//
     static register = async (req, res, next) => {
         try {
-            const {message,phone,email,company,fullName,position} = req.body
+            const {message='',phone='',email='',company='',fullName='',position=''} = req.body
             await IpATSRegister.create({fullName:fullName.toString(),message:message.toString(),phone:phone.toString(),position:position.toString(),email:email.toString(),company:company.toString()})
             await Email.sendCompanyEmail(fullName,message,email,phone,company,position)
             await Email.sendResponseEmail(email,fullName)
