@@ -32,7 +32,7 @@ class Email {
                    <p>Phone: ${subject}</p>
                    <p>Position: ${position}</p>
                    ${company?`<p>Company: ${company}</p>`:''}
-                   <p>Message: ${escapedData}</p>`
+                   ${escapedData?`<p>Message: ${escapedData}</p>`:''}`
         })
     }
     static sendResponseEmail(email,name) {
