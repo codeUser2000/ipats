@@ -22,7 +22,7 @@ function AsideMenu({visible, setVisible}) {
         let path = location.pathname
         navigate(path.replace(params.lang, val))
         // window.location.reload()
-    }, [])
+    }, [params, location.pathname])
     return (
         <div className="aside_menu" style={visible ? {right: 0} : {right: '-100vw'}}>
             <div className="close">
@@ -40,7 +40,7 @@ function AsideMenu({visible, setVisible}) {
                                 <span>Русский</span>
                             </li> : null}
                         {+lang[params?.lang || 'en'] !== 1 ?
-                            <li onClick={() => handleLangChange(1,'hy')}><img src={us} alt=""/>
+                            <li onClick={() => handleLangChange(1,'en')}><img src={us} alt=""/>
                                 <span>English</span>
                             </li> : null}
                     </ul>
