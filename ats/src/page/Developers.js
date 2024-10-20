@@ -170,7 +170,7 @@ function Developers(props) {
                               <p>
                                   {install.postman[lang[params?.lang || 'en'] || 1]}
                               </p>
-                              <a href="http://10.227.0.86:4003/ATS-API.postman_collection.json" onClick={handleClick}>
+                              <a href="http://10.227.0.86:4003/Ip-ats.com-API.postman_collection.json" onClick={handleClick}>
                                   <img src={postman} style={{marginRight:5}} alt="Go to API document"/>
                                   {install.postmanL[localStorage.getItem('ipatsLang') || 1]}
 
