@@ -118,7 +118,7 @@ function Home() {
                 <div className="main_container top_banner"
                      style={backgroundImage && windowWidth > 1024 ? {backgroundImage: `url(${backgroundImage})`} : {}}>
                     <div className="top_banner_content">
-                        <h3>{!_.isEmpty(home) ? home?.home_translate[0]?.title : ''}</h3>
+                        <h3>{!_.isEmpty(home) ? home?.home_translate[0]?.title?.replaceAll('ats.am','ip-ats') : ''}</h3>
                         <p className="top_banner_p"
                            dangerouslySetInnerHTML={{__html: !_.isEmpty(home) ? home?.home_translate[0]?.desc : ''}}/>
                         <Link to={windowWidth > 786?'#register':`/${Utils.lang()}/register`} className="register_btn">
@@ -153,8 +153,8 @@ function Home() {
                 <div className="carousel_banner">
                     <div className="carousel_banner_1">
                         <div style={{paddingBottom: 0}}>
-                            <h3>{feature?.title}</h3>
-                            <p dangerouslySetInnerHTML={{__html: feature?.desc}}/>
+                            <h3>{feature?.title?.replaceAll('ATS.AM','Ip-ats.com')}</h3>
+                            <p dangerouslySetInnerHTML={{__html: feature?.desc?.replaceAll('ATS.AM','Ip-ats.com')}}/>
                         </div>
                         <Slider {...settings}>
                             {service?.map((s, i) => (
@@ -166,10 +166,10 @@ function Home() {
                                                 <img loading="lazy" src={REACT_APP_API_URL + el.icon} alt=''/>
                                                 <div className="text">
                                                     <h4>
-                                                        <Link style={{color:'black'}} to={`/single_service${el?.link}`}>{el.new_service_translate[0].title}</Link>
+                                                        <Link style={{color:'black'}} to={`/single_service${el?.link}`}>{el.new_service_translate[0].title?.replaceAll('ATS.AM','Ip-ats.com')}</Link>
                                                     </h4>
                                                     <p>
-                                                        {el.new_service_translate[0].descShort}
+                                                        {el.new_service_translate[0].descShort?.replaceAll('ATS.AM','Ip-ats.com')}
                                                     </p>
                                                 </div>
                                             </div>
@@ -188,11 +188,11 @@ function Home() {
                         <Stories isHome={windowWidth > 550}/>
                         <div className="main_container service_host_block">
                             <div className="operator">
-                                <h3>{operator?.partner?.home_translate[0]?.title}</h3>
+                                <h3>{operator?.partner?.home_translate[0]?.title?.replaceAll('ATS.AM','Ip-ats.com')}</h3>
                                 <figure className="d-flex align-items-center justify-content-center">
                                     <img loading="lazy" src={operators} alt=''/>
                                 </figure>
-                                <p>{operator?.partner?.home_translate[0]?.desc}</p>
+                                <p>{operator?.partner?.home_translate[0]?.desc?.replaceAll('ATS.AM','Ip-ats.com')}</p>
                             </div>
                             {windowWidth > 560 ? <InstallPbx home={true}/> : null}
                         </div>
@@ -200,11 +200,11 @@ function Home() {
                 {windowWidth > 1024 ?
                     <div className="main_container service_host_block">
                         <div className="operator">
-                            <h3>{operator?.partner?.home_translate[0]?.title}</h3>
+                            <h3>{operator?.partner?.home_translate[0]?.title?.replaceAll('ATS.AM','Ip-ats.com')}</h3>
                             <div>{operator?.partnerImages?.map(p => (
                                 <figure key={p.path}><img loading="lazy" src={REACT_APP_API_URL + p.path} alt=''/></figure>
                             ))}</div>
-                            <p>{operator?.partner?.home_translate[0]?.desc}</p>
+                            <p>{operator?.partner?.home_translate[0]?.desc?.replaceAll('ATS.AM','Ip-ats.com')}</p>
                         </div>
                         <InstallPbx home={true}/>
                     </div> : null}
@@ -212,11 +212,11 @@ function Home() {
                     <div className="download_block">
                         <div>
                             <h3>
-                                {homeD.download_wrapper[lang[params?.lang || 'en']]}
+                                {homeD.download_wrapper[lang[params?.lang || 'en']]?.replaceAll('ATS.AM','Ip-ats.com')}
 
                             </h3>
                             <span>
-                            {homeD.download_desc[lang[params?.lang || 'en']]}
+                            {homeD.download_desc[lang[params?.lang || 'en']]?.replaceAll('ATS.AM','Ip-ats.com')}
                         </span>
                         </div>
                         <div style={{marginLeft: 20, margin: 30}}

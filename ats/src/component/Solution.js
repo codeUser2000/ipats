@@ -30,7 +30,7 @@ function Solution({isHome}) {
         <div className={isHome?"main_container"+" solution":'solution'}>
                <div>
                    <h3 className="solution_title">
-                       {video.title}
+                       {video.title?.replaceAll('ATS.AM','Ip-ats.com')}
                    </h3>
                    {!isHome?<video
                        className="solution_video"

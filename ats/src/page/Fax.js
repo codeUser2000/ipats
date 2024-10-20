@@ -90,12 +90,12 @@ function Fax(props) {
                         <div>
                             <div>
                                 <h4>
-                                    {install.title[+lang[params?.lang || 'en'] || 1]}
+                                    {install.title[+lang[params?.lang || 'en'] || 1]?.replaceAll('ATS.AM','Ip-ats.com')}
                                 </h4>
                             </div>
                             <div className="content">
                                 <p>
-                                    {install.desc[+lang[params?.lang || 'en'] || 1]}
+                                    {install.desc[+lang[params?.lang || 'en'] || 1]?.replaceAll('ATS.AM','Ip-ats.com')}
                                 </p>
                             </div>
                         </div>
@@ -107,18 +107,18 @@ function Fax(props) {
                     <div style={params.service !== 'virtual' && windowWidth <= 789 ? {width: '100%'} : {}}>
                         <div className="services_block"
                              style={params.service === 'local' && windowWidth <= 789 ? {width: '100%'} : {}}>
-                            <h4>{feature?.title}</h4>
-                            <p dangerouslySetInnerHTML={{__html: feature?.desc}}/>
+                            <h4>{feature?.title?.replaceAll('ATS.AM','Ip-ats.com')}</h4>
+                            <p dangerouslySetInnerHTML={{__html: feature?.desc?.replaceAll('ATS.AM','Ip-ats.com')}}/>
                             <div className="carousel_banner_service">
                                 {services?.map(el => (
                                     <div key={el.icon}>
                                         <img src={REACT_APP_API_URL + el.icon} alt=''/>
                                         <div className="text">
                                             <h4 style={{cursor:'pointer'}}>
-                                                <Link style={{color:'black'}} to={`/single_service${el?.link}`}>{el.new_service_translate[0].title}</Link>
+                                                <Link style={{color:'black'}} to={`/single_service${el?.link}`}>{el.new_service_translate[0].title?.replaceAll('ATS.AM','Ip-ats.com')}</Link>
                                             </h4>
                                             <p>
-                                                {el.new_service_translate[0].descShort}
+                                                {el.new_service_translate[0].descShort?.replaceAll('ATS.AM','Ip-ats.com')}
                                             </p>
                                         </div>
                                     </div>

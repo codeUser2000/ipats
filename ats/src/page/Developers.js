@@ -35,7 +35,7 @@ function Developers(props) {
 
     const handleClick = (event) => {
         const href = event.currentTarget.getAttribute('href');
-        if (href === "https://ats.am/ATS-API.postman_collection.json") {
+        if (href === "http://10.227.0.86:4003/ATS-API.postman_collection.json") {
             event.preventDefault();
             fetch(href)
                 .then(response => response.blob())
@@ -79,7 +79,7 @@ function Developers(props) {
               <div className="main_container">
                   <h3 className="d-flex align-items-center justify-content-between">
                       {homeD.api_title[lang[params?.lang || 'en'] || 1]}
-                      <a href="https://ats.am/api-docs" target="_blank"> <img style={{width: 30, height: 30}} src={dev} alt="Go to API document"/></a>
+                      <a href="http://10.227.0.86:4003/api-docs" target="_blank"> <img style={{width: 30, height: 30}} src={dev} alt="Go to API document"/></a>
                   </h3>
                   <hr/>
               </div>
@@ -90,7 +90,7 @@ function Developers(props) {
                               <p>
                                   {install.swagger[lang[params?.lang || 'en'] || 1]}
                               </p>
-                              <a style={{marginBottom:15}} href="https://ats.am/api-docs">
+                              <a style={{marginBottom:15}} href="http://10.227.0.86:4003/api-docs">
                                   <img style={{marginRight:5}} src={swagger} alt="Go to API document"/>
                                   {install.swaggerL[lang[params?.lang || 'en'] || 1]}
 
@@ -98,7 +98,7 @@ function Developers(props) {
                               <p>
                                   {install.postman[lang[params?.lang || 'en'] || 1]}
                               </p>
-                              <a href="https://ats.am/ATS-API.postman_collection.json" onClick={handleClick}>
+                              <a href="http://10.227.0.86:4003/ATS-API.postman_collection.json" onClick={handleClick}>
                                   <img style={{marginRight:5}} src={postman} alt="Go to API document"/>
                                   {install.postmanL[lang[params?.lang || 'en'] || 1]}
 
@@ -122,7 +122,7 @@ function Developers(props) {
                                   </div>
                                   <p className="api_block_p">{a.api_title_translate[0].desc}</p>
 
-                                  <p className="api_block_p">{homeD.example[lang[params?.lang || 'en'] || 1]}: {a.link}?key=185f8db32271fe25f561a</p>
+                                  <p className="api_block_p">{homeD.example[lang[params?.lang || 'en'] || 1]}: {a.link?.replaceAll('ats.am','ip-ats.com')}?key=185f8db32271fe25f561a</p>
 
                                   <p className="request_type">
                                       {params[i][0].length ? 'Body' : ''}
@@ -162,7 +162,7 @@ function Developers(props) {
                               <p>
                                   {install.swagger[lang[params?.lang || 'en'] || 1]}
                               </p>
-                              <a style={{marginBottom:15}}  href="https://ats.am/api-docs" target="_blank">
+                              <a style={{marginBottom:15}}  href="http://10.227.0.86:4003/api-docs" target="_blank">
                                   <img src={swagger} style={{marginRight:5}} alt="Go to API document"/>
                                   {install.swaggerL[lang[params?.lang || 'en'] || 1]}
 
@@ -170,7 +170,7 @@ function Developers(props) {
                               <p>
                                   {install.postman[lang[params?.lang || 'en'] || 1]}
                               </p>
-                              <a href="https://ats.am/ATS-API.postman_collection.json" onClick={handleClick}>
+                              <a href="http://10.227.0.86:4003/ATS-API.postman_collection.json" onClick={handleClick}>
                                   <img src={postman} style={{marginRight:5}} alt="Go to API document"/>
                                   {install.postmanL[localStorage.getItem('ipatsLang') || 1]}
 

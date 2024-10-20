@@ -52,22 +52,22 @@ function Integration(props) {
                </Helmet>
 
                <div className="main_container about">
-                   <h1>{operator?.title}</h1>
-                   <p dangerouslySetInnerHTML={{__html:operator?.desc}}/>
+                   <h1>{operator?.title?.replaceAll('ATS.AM','Ip-ats.com')}</h1>
+                   <p dangerouslySetInnerHTML={{__html:operator?.desc?.replaceAll('ATS.AM','Ip-ats.com')}}/>
                </div>
                <div className="main_container crm">
                    <div>
 
                        <div className="crm_block my_crm">
                            <h3>
-                               {homeD.crm[lang[params?.lang || 'en'] || 1]}
+                               {homeD.crm[lang[params?.lang || 'en'] || 1]?.replaceAll('ATS.AM','Ip-ats.com')}
                            </h3>
                            {crm.map(c => (
                                <div className="crm_item" key={c.id}>
                                    <figure><img src={REACT_APP_API_URL + c.image} alt=""/></figure>
                                    <div>
-                                       <h3>{c.crm_integration_translate[0].title}</h3>
-                                       <p>{c.crm_integration_translate[0].desc}</p>
+                                       <h3>{c.crm_integration_translate[0].title?.replaceAll('ATS.AM','Ip-ats.com')}</h3>
+                                       <p>{c.crm_integration_translate[0].desc?.replaceAll('ATS.AM','Ip-ats.com')}</p>
                                    </div>
                                </div>
                            ))}

@@ -24,7 +24,7 @@ function InstallPbx({home}) {
             <div className={home?'home':''}>
                 {windowWidth > 435 && home?<div className="d-flex w-100">
                     <h3>
-                        {homeD.operator?.title[lang[params?.lang || 'en'] || 1]}
+                        {homeD.operator?.title[lang[params?.lang || 'en'] || 1]?.replaceAll('ATS.AM','Ip-ats.com')}
                     </h3>
                     <figure>
                         <img src={logo} alt=''/>
@@ -33,9 +33,9 @@ function InstallPbx({home}) {
                     </figure>
 
                 </div>:<h3>
-                    {homeD.operator?.title[lang[params?.lang || 'en'] || 1]}
+                    {homeD.operator?.title[lang[params?.lang || 'en'] || 1]?.replaceAll('ATS.AM','Ip-ats.com')}
                 </h3>}
-                <p>{homeD.operator?.desc[lang[params?.lang || 'en'] || 1]}</p>
+                <p>{homeD.operator?.desc[lang[params?.lang || 'en'] || 1]?.replaceAll('ATS.AM','Ip-ats.com')}</p>
 
             </div>
             {windowWidth <= 426?<figure >

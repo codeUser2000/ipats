@@ -65,13 +65,13 @@ function Contact(props) {
         <div className="connect">
             <div>
                 <h3>
-                    {!window.location.pathname.includes('/about')?contact?.title:contactUs.title[lang[params?.lang || 'en'] || 1]}
+                    {!window.location.pathname.includes('/about')?contact?.title:contactUs.title[lang[params?.lang || 'en'] || 1]?.replaceAll('ATS.AM','Ip-ats.com')}
 
                 </h3>
                 {!window.location.pathname.includes('/api_document') ?<img src={img} alt=''/>:null}
 
             </div>
-            {window.location.pathname.includes('/about')?contactUs.desc[lang[params?.lang || 'en'] || 1]:<div dangerouslySetInnerHTML={{__html:contact?.desc}} ref={scrollToElementRef} style={{ scrollMarginTop: 40}}/>}
+            {window.location.pathname.includes('/about')?contactUs.desc[lang[params?.lang || 'en'] || 1]?.replaceAll('ATS.AM','Ip-ats.com'):<div dangerouslySetInnerHTML={{__html:contact?.desc?.replaceAll('ATS.AM','Ip-ats.com')}} ref={scrollToElementRef} style={{ scrollMarginTop: 40}}/>}
             <form  onSubmit={handleSubmit}>
                 <input value={message.name} placeholder={input.name[lang[params?.lang || 'en'] || 1]} onChange={(ev) => handleChange('name',ev)}/>
                 <input value={message.company} placeholder={input.company[lang[params?.lang || 'en'] || 1]} onChange={(ev) => handleChange('company',ev)}/>

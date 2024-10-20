@@ -16,7 +16,7 @@ function Product(props) {
         })()
     }, [params,lang])
     return (
-        <div className="control_about " dangerouslySetInnerHTML={{__html:plus?.title}}/>
+        <div className="control_about " dangerouslySetInnerHTML={{__html:plus?.title?.replaceAll('ATS.AM','Ip-ats.com')}}/>
 
     );
 }

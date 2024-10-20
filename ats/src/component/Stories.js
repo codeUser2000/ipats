@@ -58,7 +58,7 @@ function Stories({isHome}) {
              <h4 style={{
                 textAlign: windowWidth > 1024 || windowWidth < 560?'center':'left',
                 margin: '16px 55px 0'
-            }}>{result[0]?.slider_data_translate[0]?.title}</h4>
+            }}>{result[0]?.slider_data_translate[0]?.title?.replaceAll('ATS.AM','Ip-ats.com')}</h4>
 
             <Slider {...settings1}>
                 {result?.map(r => (
@@ -69,7 +69,7 @@ function Stories({isHome}) {
                                 <img src={REACT_APP_API_URL + r.image} alt=''/>
                             </figure>
                             <p className="text_center carousel_banner_p"
-                               dangerouslySetInnerHTML={{__html: r.slider_data_translate[0].desc.split('</p>')[1]}}/>
+                               dangerouslySetInnerHTML={{__html: r.slider_data_translate[0].desc.split('</p>')[1]?.replaceAll('ATS.AM','Ip-ats.com')}}/>
                         </div>
                     </div>
                 ))}

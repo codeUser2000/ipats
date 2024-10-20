@@ -40,7 +40,7 @@ class Email {
             from: `"IP-ATS" <monitoring@ats.am>`,
             to: email,
             subject: 'Registration',
-            html: `<p> Dear ${name}. We resived your submition and our technics will contact you soon</p>`
+            html: `<p> Dear ${name}.</p> <p>Thank you for choosing us. We resived your submition and our specialists will contact you soon</p>`
         })
     }
 

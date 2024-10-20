@@ -34,7 +34,7 @@ function ClientBlock({isHome}) {
             {isHome && windowWidth <= 1024?<hr className="first_hr"/>:null}
             <div className={isHome?"main_container"+" client":'clients'} >
                 <div className="client_title">
-                    <p>{isHome && !_.isEmpty(client)?client?.data?.home_translate[0].title:!_.isEmpty(client)?client?.data?.home_translate[0].desc:''}</p>
+                    <p>{isHome && !_.isEmpty(client)?client?.data?.home_translate[0].title?.replaceAll('ATS.AM','Ip-ats.com'):!_.isEmpty(client)?client?.data?.home_translate[0].desc?.replaceAll('ATS.AM','Ip-ats.com'):''}</p>
                 </div>
                 <div className="client_top_figure">
                     {client.images?client.images.map(i => <figure className="client_figure" key={i.id}><img src={REACT_APP_API_URL + i.path} alt=''/></figure>):null}
