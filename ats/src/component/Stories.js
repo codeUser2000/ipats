@@ -69,7 +69,7 @@ function Stories({isHome}) {
                                 <img src={REACT_APP_API_URL + r.image} alt=''/>
                             </figure>
                             <p className="text_center carousel_banner_p"
-                               dangerouslySetInnerHTML={{__html: r.slider_data_translate[0].desc.split('</p>')[1]?.replaceAll('ATS.AM','Ip-ats.com')}}/>
+                               dangerouslySetInnerHTML={{__html: r.slider_data_translate[0].desc?.replaceAll('АТS.AM','Ip-ats.com')?.replaceAll('АТS.АМ','Ip-ats.com').split('</p>')[1]?.replaceAll('ATS.AM','Ip-ats.com')}}/>
                         </div>
                     </div>
                 ))}
