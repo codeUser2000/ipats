@@ -186,7 +186,6 @@ function Wrapper({children}) {
                         <Link to={`/${Utils.lang()}${menu[5].link}`} className="simple_btn_outline">
                             <span>{buttons.top[lang[params?.lang || 'en'] || 1]}</span>
                         </Link>
-                        <a className="call_svg" href="tel:37444720101"><img src={call} alt='Make a call'/></a>
                         <img onClick={() => setMenu(!menuList)} src={menuIcon} alt=''/>
                     </div>
                 </div>
