@@ -26,10 +26,10 @@ class Email {
         return transporter.sendMail({
             from: `"IP-ATS" <monitoring@ats.am>`,
             to: 'info@ats.am',
-            subject: subject.toString() +' '+ name.toString(),
+            subject: 'IP-ATS registration',
             html: `<p>Email: ${creater.toString()}</p>
                    <p>Name: ${name}</p>
-                   <p>Phone: ${subject}</p>
+                   ${subject? `<p>Phone: ${subject}</p>`:null}
                    <p>Position: ${position}</p>
                    ${company?`<p>Company: ${company}</p>`:''}
                    ${escapedData?`<p>Message: ${escapedData}</p>`:''}`

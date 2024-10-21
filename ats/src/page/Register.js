@@ -33,7 +33,7 @@ function Register(props) {
     };
     const handleRegister = useCallback(async () => {
         try {
-            if (!form.phone || !isValidPhoneNumber(form.phone)) {
+            if (form.phone && !isValidPhoneNumber(form.phone)) {
                 toast.error('Phone is not valid');
                 return;
             }
