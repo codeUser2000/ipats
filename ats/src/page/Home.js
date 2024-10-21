@@ -113,7 +113,7 @@ function Home() {
         return (
             <Wrapper>
                 <Helmet>
-                    <title>ATS</title>
+                    <title>IP-ATS</title>
                 </Helmet>
                 <div className="main_container top_banner"
                      style={backgroundImage && windowWidth > 1024 ? {backgroundImage: `url(${backgroundImage})`} : {}}>
