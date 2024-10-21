@@ -29,7 +29,7 @@ class Email {
             subject: 'IP-ATS registration',
             html: `<p>Email: ${creater.toString()}</p>
                    <p>Name: ${name}</p>
-                   ${subject? `<p>Phone: ${subject}</p>`:null}
+                   ${subject? `<p>Phone: ${subject}</p>`:''}
                    <p>Position: ${position}</p>
                    ${company?`<p>Company: ${company}</p>`:''}
                    ${escapedData?`<p>Message: ${escapedData}</p>`:''}`

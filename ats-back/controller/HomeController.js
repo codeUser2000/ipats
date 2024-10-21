@@ -26,6 +26,61 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 class HomeController {
     //----HOME----//
+    static getClient = async (req, res, next) => {
+        try {
+            const {lang} = req.query
+            let whereOptions = {}
+            if (lang) {
+                whereOptions = {lang: +lang}
+            }
+            const reviewData = await Home.findOne({
+                where: {type: 'review'},
+                attributes: ['id'],
+                include: [
+                    {
+                        model: HomeTranslate,
+                        as: 'home_translate',
+                        where: whereOptions
+                    },]
+            })
+
+            const client = await Home.findOne({
+                where: {type: 'client'},
+                attributes: ['id'], // Include the attributes you need, including 'home_translate'
+                include: [
+                    {
+                        model: HomeTranslate,
+                        as: 'home_translate',
+                        where: whereOptions,
+                    },
+                ],
+            });
+            const clientImages = await Clients.findAll({});
+
+            const review = await Reviews.findAll({
+                where: whereOptions,
+            });
+
+
+            res.json({
+                status: 'ok',
+
+                clientImages,
+
+                client,
+
+                reviewData,
+
+                review,
+
+            });
+
+
+        } catch (e) {
+            console.log(e)
+            next(e)
+        }
+    }
 
 
     //----CLIENT-----//

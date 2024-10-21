@@ -13,6 +13,7 @@ const router = express.Router();
 //----ABOUT----//
 router.get('/getHome', HomeController.getHome);
 router.get('/getVideo', HomeController.getVideo);
+router.get('/client', HomeController.getClient);
 
 
 router.get('/getService', HomeController.getService);
