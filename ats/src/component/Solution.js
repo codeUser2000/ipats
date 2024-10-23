@@ -44,13 +44,13 @@ function Solution({isHome}) {
 
                    {windowWidth > 435 ?<p className="solution_p" dangerouslySetInnerHTML={{__html:video.desc}}/>:null}
                    <p className="solution_p">
-                       {homeD.solution[lang[params?.lang || 'en'] || 1].split('|')[0]} <Link to={windowWidth > 786?'#register':`/${Utils.lang()}/register`}>{homeD.solution[lang[params?.lang || 'en'] || 1].split('|')[1]}</Link>
+                       {homeD?.solution[lang[params?.lang || 'en'] || 1].split('|')[0]} <Link to={windowWidth > 786?'#register':`/${Utils.lang()}/register`}>{homeD.solution[lang[params?.lang || 'en'] || 1].split('|')[1]}</Link>
                    </p>
                </div>
             {isHome?<div className="d-flex justify-content-end align-items-center">
                    <video
                        className="solution_video"
-                       src={+lang[params?.lang || 'en'] === 1 ?"https://ats.am/ats-eng.mp4": +lang[params?.lang || 'en'] === 2?"https://ats.am/ats-ru.mp4":"https://ats.am/ats.mp4"}
+                       src="https://ats.am/ats-eng.mp4"
                        controls
                        preload="metadata"
                        poster={poster}

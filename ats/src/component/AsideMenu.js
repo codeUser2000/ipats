@@ -36,8 +36,8 @@ function AsideMenu({visible, setVisible}) {
                     </div>
                     <ul className="lang_select">
                         {+lang[params?.lang || 'en'] !== 2 ?
-                            <li onClick={() => handleLangChange(2,'ru')}><img src={ru} alt=""/>
-                                <span>Русский</span>
+                            <li onClick={() => handleLangChange(4,'fr')}><img src={ru} alt=""/>
+                                <span>France</span>
                             </li> : null}
                         {+lang[params?.lang || 'en'] !== 1 ?
                             <li onClick={() => handleLangChange(1,'en')}><img src={us} alt=""/>

@@ -73,12 +73,12 @@ function Developers(props) {
           <Wrapper>
               <Helmet>
                   <title>
-                      {menu[4].trans[lang[params?.lang || 'en'] || 1]}
+                      {menu[4].trans[lang[param?.lang || 'en'] || 1]}
                   </title>
               </Helmet>
               <div className="main_container">
                   <h3 className="d-flex align-items-center justify-content-between">
-                      {homeD.api_title[lang[params?.lang || 'en'] || 1]}
+                      {homeD.api_title[lang[param?.lang || 'en'] || 1]}
                       <a href="https://ip-ats.com/api-docs" target="_blank"> <img style={{width: 30, height: 30}} src={dev} alt="Go to API document"/></a>
                   </h3>
                   <hr/>
@@ -88,41 +88,41 @@ function Developers(props) {
                   <div className="api_part">
                       {windowWidth <= 768 ? <div className="connect dev">
                               <p>
-                                  {install.swagger[lang[params?.lang || 'en'] || 1]}
+                                  {install.swagger[lang[param?.lang || 'en'] || 1]}
                               </p>
                               <a style={{marginBottom:15}} href="https://ip-ats.com/api-docs">
                                   <img style={{marginRight:5}} src={swagger} alt="Go to API document"/>
-                                  {install.swaggerL[lang[params?.lang || 'en'] || 1]}
+                                  {install.swaggerL[lang[param?.lang || 'en'] || 1]}
 
                               </a>
                               <p>
-                                  {install.postman[lang[params?.lang || 'en'] || 1]}
+                                  {install.postman[lang[param?.lang || 'en'] || 1]}
                               </p>
                               <a href="https://ip-ats.com/ATS-API.postman_collection.json" onClick={handleClick}>
                                   <img style={{marginRight:5}} src={postman} alt="Go to API document"/>
-                                  {install.postmanL[lang[params?.lang || 'en'] || 1]}
+                                  {install.postmanL[lang[param?.lang || 'en'] || 1]}
 
                               </a>
                           </div>
                           : null}
                       <p>
-                          {homeD.api_desc[lang[params?.lang || 'en'] || 1]}
+                          {homeD.api_desc[lang[param?.lang || 'en'] || 1]}
 
                       </p>
                       <div className='api_block'>
-                          {api.map((a, i) => (
+                          {api?.map((a, i) => (
                               <div key={_.uniqueId()}>
                                   <div className="api_header">
                                     <span>
-                                    {a.type}
+                                    {a?.type}
                                 </span>
                                       <h3>
-                                          {a.api_title_translate[0].title}
+                                          {a?.api_title_translate[0]?.title}
                                       </h3>
                                   </div>
-                                  <p className="api_block_p">{a.api_title_translate[0].desc}</p>
+                                  <p className="api_block_p">{a?.api_title_translate[0]?.desc}</p>
 
-                                  <p className="api_block_p">{homeD.example[lang[params?.lang || 'en'] || 1]}: {a.link?.replaceAll('ats.am','ip-ats.com')}?key=185f8db32271fe25f561a</p>
+                                  <p className="api_block_p">{homeD.example[lang[param?.lang || 'en'] || 1]}: {a?.link?.replaceAll('ats.am','ip-ats.com')}?key=185f8db32271fe25f561a</p>
 
                                   <p className="request_type">
                                       {params[i][0].length ? 'Body' : ''}
@@ -160,15 +160,15 @@ function Developers(props) {
                       {windowWidth > 768 ?
                           <div className="connect">
                               <p>
-                                  {install.swagger[lang[params?.lang || 'en'] || 1]}
+                                  {install.swagger[lang[param?.lang || 'en'] || 1]}
                               </p>
                               <a style={{marginBottom:15}}  href="https://ip-ats.com/api-docs" target="_blank">
                                   <img src={swagger} style={{marginRight:5}} alt="Go to API document"/>
-                                  {install.swaggerL[lang[params?.lang || 'en'] || 1]}
+                                  {install.swaggerL[lang[param?.lang || 'en'] || 1]}
 
                               </a>
                               <p>
-                                  {install.postman[lang[params?.lang || 'en'] || 1]}
+                                  {install.postman[lang[param?.lang || 'en'] || 1]}
                               </p>
                               <a href="https://ip-ats.com/Ip-ats.com-API.postman_collection.json" onClick={handleClick}>
                                   <img src={postman} style={{marginRight:5}} alt="Go to API document"/>

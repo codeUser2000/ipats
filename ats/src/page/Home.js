@@ -101,6 +101,7 @@ function Home() {
 
                 setLoader(false)
             } catch (e) {
+                setLoader(false)
 
             }
         })()

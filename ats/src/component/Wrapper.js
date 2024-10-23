@@ -14,15 +14,13 @@ import menuIcon from '../assets/img/icon/Buterbrod.svg'
 import AsideMenu from "./AsideMenu";
 import big from "../assets/img/icon/Arrow 1.svg";
 import small from "../assets/img/icon/Arrow 2.svg";
-import arm from '../assets/img/icon/arm.svg'
-import ru from '../assets/img/icon/ru.svg'
+import ru from '../assets/img/icon/fr.png'
 import us from '../assets/img/icon/us.svg'
 import down from '../assets/img/icon/down.svg'
 import Register from "../page/Register";
 import {useLocation, useNavigate, useParams} from "react-router";
 import Confirm from "../page/Confirm";
 import telegram from '../assets/img/icon/telegram.avif'
-import call from '../assets/img/icon/call-svgrepo-com.svg'
 import Utils from "../helpers/Utils";
 
 function Wrapper({children}) {
@@ -104,13 +102,13 @@ function Wrapper({children}) {
                                 <div className="select_lang">
                                     <div className="selected_lang">
                                         <img
-                                            src={+lang[params?.lang || 'en'] === 1 ? us : +lang[params?.lang || 'en'] === 2 ? ru : arm}
+                                            src={+lang[params?.lang || 'en'] === 1 ? us :  ru }
                                             alt=""/>
                                         <img className="down" src={down} alt=""/>
                                     </div>
                                     <ul className="lang_select">
-                                        {+lang[params?.lang || 'en'] !== 2 ?
-                                            <li onClick={() => handleLangChange(2, 'ru')}><img src={ru} alt=""/>
+                                        {+lang[params?.lang || 'en'] !== 4 ?
+                                            <li onClick={() => handleLangChange(4, 'fr')}><img src={ru} alt=""/>
                                             </li> : null}
                                         {+lang[params?.lang || 'en'] !== 1 ?
                                             <li onClick={() => handleLangChange(1, 'en')}><img src={us} alt=""/>
