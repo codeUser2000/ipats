@@ -7,7 +7,7 @@ import plus from "../assets/img/icon/PasswordIcon.svg";
 import big from "../assets/img/icon/Arrow 1.svg";
 import small from "../assets/img/icon/Arrow 2.svg";
 import us from "../assets/img/icon/us.svg";
-import ru from "../assets/img/icon/ru.svg";
+import ru from "../assets/img/icon/fr.png";
 import arm from "../assets/img/icon/arm.svg";
 import down from "../assets/img/icon/down.svg";
 import {useNavigate, useParams} from "react-router";
@@ -29,13 +29,13 @@ function AsideMenu({visible, setVisible}) {
                 <div className="select_lang">
                     <div className="selected_lang">
                         <img
-                            src={+lang[params?.lang || 'en'] === 2 ? ru : us}
+                            src={+lang[params?.lang || 'en'] === 4 ? ru : us}
                             alt=""/>
-                        <span>{+lang[params?.lang || 'en'] === 1 ? 'English' :  'Русский' }</span>
+                        <span>{+lang[params?.lang || 'en'] === 1 ? 'English' :  'France' }</span>
                         <img className="position-absolute" style={{right:0,top:5}} src={down} alt=""/>
                     </div>
                     <ul className="lang_select">
-                        {+lang[params?.lang || 'en'] !== 2 ?
+                        {+lang[params?.lang || 'en'] !== 4 ?
                             <li onClick={() => handleLangChange(4,'fr')}><img src={ru} alt=""/>
                                 <span>France</span>
                             </li> : null}
