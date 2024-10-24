@@ -100,9 +100,9 @@ export const homeD = {
 }
 
 export const buttons = {
-    top: ['', 'Get free access', '', '', 'Obtenez un accès gratuit'],
+    top: ['', 'Get free access', '', '', 'Accès gratuit'],
     sign: ['', 'Sign in', '', '', 'Se connecter'],
-    reg: ['', 'Submit an application', '', '', 'Soumettre une candidature'],
+    reg: ['', 'Submit an application', '', '', 'Candidater'],
     request: ['', 'Request integration', '', '', 'Demande d\'intégration'],
     forget: ['', 'Forget password?', '', '', 'Mot de passe oublié?'],
     email: ['', 'Your phone number', '', '', 'Votre numéro de téléphone'],

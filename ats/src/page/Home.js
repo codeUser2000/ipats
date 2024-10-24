@@ -132,7 +132,7 @@ function Home() {
                             style={
                                 windowWidth <= 370? +lang[params?.lang || 'en'] === 3 ? {objectPosition: -330} : +lang[params?.lang || 'en'] === 2 ? {objectPosition: -330} : {} :
                                 windowWidth <= 400 && windowWidth >=370 ? +lang[params?.lang || 'en'] === 3 ? {objectPosition: -300} : +lang[params?.lang || 'en'] === 2 ? {objectPosition: -290} : {}:
-                                windowWidth < 550? +lang[params?.lang || 'en'] === 3 ? {objectPosition: -245} : +lang[params?.lang || 'en'] === 2 ? {objectPosition: -230} : {} : null}
+                                windowWidth < 550? +lang[params?.lang || 'en'] === 3 ? {objectPosition: -245} : +lang[params?.lang || 'en'] === 2 ? {objectPosition: -230} : {objectPosition: -293} : null}
                             className='top_banner_img' alt=''
                             src={!_.isEmpty(home) ? REACT_APP_API_URL + home?.image : ''}/>
                     </div>
