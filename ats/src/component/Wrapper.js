@@ -104,7 +104,7 @@ function Wrapper({children}) {
                                 <div className="select_lang">
                                     <div className="selected_lang">
                                         <img
-                                            src={+lang[params?.lang || 'en'] === 1 ? us : +lang[params?.lang || 'en'] === 2 ? ru : us}
+                                            src={+lang[params?.lang || 'en'] === 1 ? us : ru}
                                             alt=""/>
                                         <img className="down" src={down} alt=""/>
                                     </div>
