@@ -4,27 +4,25 @@ import copyRight from '../assets/img/footer/copyright.png'
 import copyRight2 from '../assets/img/footer/Copyright © 2024.svg'
 import footerLogo from '../assets/img/footer/footer_logo.png'
 import footerLogo2 from '../assets/img/footer/itspark.svg'
+import appstore from '../assets/img/footer/AppStoreIcon.svg'
+import playstore from '../assets/img/footer/PlayStoreIcon.svg'
 import headerLogo from '../assets/img/header/header_logo.svg'
 import userIcon from '../assets/img/icon/user.svg'
-import {buttons, footer, homeD, lang, menu} from "../helpers/translate";
+import {buttons, footer, homeD, menu,lang} from "../helpers/translate";
 import smallIcon from '../assets/img/block/small_logo.svg'
 import menuIcon from '../assets/img/icon/Buterbrod.svg'
 import AsideMenu from "./AsideMenu";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import big from "../assets/img/icon/Arrow 1.svg";
 import small from "../assets/img/icon/Arrow 2.svg";
-import arm from '../assets/img/icon/arm.svg'
-import ru from '../assets/img/icon/ru.svg'
+import ru from '../assets/img/icon/fr.png'
 import us from '../assets/img/icon/us.svg'
 import down from '../assets/img/icon/down.svg'
 import Register from "../page/Register";
 import {useLocation, useNavigate, useParams} from "react-router";
 import Confirm from "../page/Confirm";
 import telegram from '../assets/img/icon/telegram.avif'
-import call from '../assets/img/icon/call-svgrepo-com.svg'
 import Utils from "../helpers/Utils";
-import playstore from '../assets/img/footer/PlayStoreIcon.svg'
-import appstore from '../assets/img/footer/AppStoreIcon.svg'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFacebookF, faInstagram, faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
 
 function Wrapper({children}) {
@@ -37,14 +35,13 @@ function Wrapper({children}) {
         localStorage.setItem('ats_link', link)
     }, [])
     const handleLangChange = useCallback((lang, val) => {
-        localStorage.setItem('atsLang', lang)
+        localStorage.setItem('ipatsLang', lang)
         let path = location.pathname
         navigate(path.replace(params.lang, val))
-        // window.location.reload()
     }, [params, location.pathname])
     useEffect(() => {
-        if (!localStorage.getItem('atsLang')) {
-            localStorage.setItem('atsLang', '1')
+        if (!localStorage.getItem('ipatsLang')) {
+            localStorage.setItem('ipatsLang', '1')
         }
     }, []);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -60,35 +57,20 @@ function Wrapper({children}) {
         };
     }, []);
     const [showRegister, setShowRegister] = useState(false);
-    const [showDrop, setShowDrop] = useState(false);
-    const [showLogin, setShowLogin] = useState(false);
     const [showConfirm, setShowConfirm] = useState(false);
 
     useEffect(() => {
         if (location.hash === '#register') {
             setShowRegister(true);
-            setShowLogin(false)
-            setShowDrop(false);
             setShowConfirm(false);
         } else if (location.hash === '#drop') {
-            setShowDrop(true);
             setShowRegister(false);
-            setShowLogin(false)
             setShowConfirm(false)
-        } else if (location.hash === '#login') {
-            setShowLogin(true)
-            setShowRegister(false);
-            setShowDrop(false);
-            setShowConfirm(false);
         } else if (location.hash === '#registered') {
-            setShowLogin(false)
             setShowRegister(false);
-            setShowDrop(false);
             setShowConfirm(true);
         } else {
             setShowRegister(false);
-            setShowLogin(false)
-            setShowDrop(false);
             setShowConfirm(false);
         }
 
@@ -112,18 +94,9 @@ function Wrapper({children}) {
                                         <img src={menu[4].icon} alt=""/>
                                         {menu[4].trans[lang[params?.lang || 'en'] || 1]}
                                     </Link></li>
-                                    <li onClick={() => handleSetLink(menu[5].link)}><Link
-                                        to={`/${Utils.lang()}${menu[5].link}`}>
-                                        <img src={menu[5].icon} alt=""/>
-                                        {menu[5].trans[lang[params?.lang || 'en'] || 1]}
-                                    </Link></li>
                                 </ul>
                                 <section className="header_nav nav_bottom">
-                                    <Link to={`/${Utils.lang()}${menu[7].link}`} className="simple_btn">
-                                        <img src={userIcon} alt={"Go to" + menu[7].link}/>
-                                        <span>{buttons.sign[lang[params?.lang || 'en'] || 1]}</span>
-                                    </Link>
-                                    <Link to={`/${Utils.lang()}${menu[6].link}`} className="simple_btn_outline">
+                                    <Link to={`${menu[5].link}`} className="simple_btn_outline">
                                         <span>{buttons.top[lang[params?.lang || 'en'] || 1]}</span>
                                     </Link>
                                     <p style={{width: 100}}/>
@@ -131,16 +104,13 @@ function Wrapper({children}) {
                                 <div className="select_lang">
                                     <div className="selected_lang">
                                         <img
-                                            src={+lang[params?.lang || 'en'] === 1 ? us : +lang[params?.lang || 'en'] === 2 ? ru : arm}
+                                            src={+lang[params?.lang || 'en'] === 1 ? us : +lang[params?.lang || 'en'] === 2 ? ru : us}
                                             alt=""/>
                                         <img className="down" src={down} alt=""/>
                                     </div>
                                     <ul className="lang_select">
-                                        {+lang[params?.lang || 'en'] !== 3 ?
-                                            <li onClick={() => handleLangChange(3, 'hy')}><img src={arm} alt=""/>
-                                            </li> : null}
-                                        {+lang[params?.lang || 'en'] !== 2 ?
-                                            <li onClick={() => handleLangChange(2, 'ru')}><img src={ru} alt=""/>
+                                        {+lang[params?.lang || 'en'] !== 4 ?
+                                            <li onClick={() => handleLangChange(4, 'fr')}><img src={ru} alt=""/>
                                             </li> : null}
                                         {+lang[params?.lang || 'en'] !== 1 ?
                                             <li onClick={() => handleLangChange(1, 'en')}><img src={us} alt=""/>
@@ -167,10 +137,8 @@ function Wrapper({children}) {
                                                             </li>
                                                             <ul className={see ? "header_nav_child see" : "header_nav_child"}>
                                                                 {l.child.map(r => (
-                                                                    <li onClick={() => handleSetLink(r.link)}
-                                                                        key={r.link}>
-                                                                        <NavLink className="header_nav_child_a"
-                                                                                 to={`/${Utils.lang()}${r.link}`}>
+                                                                    <li onClick={() => handleSetLink(r.link)} key={r.link}>
+                                                                        <NavLink className="header_nav_child_a" to={`/${Utils.lang()}${r.link}`}>
                                                                             <div>
                                                                                 <img
                                                                                     className={window.location.pathname === `/${Utils.lang()}${r.link}` ? '_big' : '_small'}
@@ -193,8 +161,7 @@ function Wrapper({children}) {
                                                     return (
                                                         <li onClick={() => handleSetLink(l.link)} key={l.id}><Link
                                                             to={`/${Utils.lang()}${l.link}`}>
-                                                            <img src={l.icon}
-                                                                 alt={"Go to" + l.trans[lang[params?.lang || 'en'] || 1]}/>
+                                                            <img src={l.icon} alt={"Go to" + l.trans[lang[params?.lang || 'en'] || 1]}/>
                                                             {l.trans[lang[params?.lang || 'en'] || 1]}
                                                         </Link></li>
                                                     )
@@ -216,10 +183,9 @@ function Wrapper({children}) {
                         </Link>
                     </figure>
                     <div className="m-0 align-items-center">
-                        <Link to={`/${Utils.lang()}${menu[6].link}`} className="simple_btn_outline">
+                        <Link to={`/${Utils.lang()}${menu[5].link}`} className="simple_btn_outline">
                             <span>{buttons.top[lang[params?.lang || 'en'] || 1]}</span>
                         </Link>
-                        <a className="call_svg" href="tel:37444720101"><img src={call} alt='Make a call'/></a>
                         <img onClick={() => setMenu(!menuList)} src={menuIcon} alt=''/>
                     </div>
                 </div>
@@ -243,9 +209,6 @@ function Wrapper({children}) {
                                 <ul>
                                     <li><Link
                                         to={`/${Utils.lang()}/about`}>{footer.check[lang[params?.lang || 'en'] || 1]}</Link>
-                                    </li>
-                                    <li><Link
-                                        to={`/${Utils.lang()}/partner`}>{footer.partner[lang[params?.lang || 'en'] || 1]}</Link>
                                     </li>
 
                                     <li><Link
@@ -331,29 +294,14 @@ function Wrapper({children}) {
                         </div>
                     </div>
                 </div>
-                {windowWidth > 435 ? <div className="row copyright">
-                    <div className="col-md-9">
-                        <p className="footer_text">
-                            {footer.copyright[lang[params?.lang || 'en'] || 1]} <Link
-                            to={`/${Utils.lang()}/about`}>{footer.learn[lang[params?.lang || 'en'] || 1]}</Link>
-                        </p>
-                    </div>
-                    <div className="col-md-3 ">
-                        <figure>
-                            <img className="wi-150" src={copyRight} alt=''/>
-                        </figure>
-                    </div>
-                </div> : null}
+
+
                 <div className="telegram_chat_block"><p className="chat_text">24/7</p>
                     <img className="telegram_chat" onClick={() => window.location.href = "https://t.me/ats_am_bot"}
                          src={telegram} alt=""/></div>
-
-
             </footer>
             {windowWidth >= 768 ? null : <AsideMenu setVisible={setMenu} visible={menuList}/>}
             {showRegister ? <Register/> : null}
-            {showLogin ? <Login/> : null}
-            {showDrop ? <DropPass/> : null}
             {showConfirm ? <Confirm/> : null}
         </>
     );
