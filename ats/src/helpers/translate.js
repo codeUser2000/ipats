@@ -22,14 +22,15 @@ export const menu = [
                     id: 1,
                     icon: logo1,
                     link: '/single_service/virtual',
-                    trans: ['', 'Self-Hosted PBX', '', '', 'PBX auto-hébergé'],
+                    trans: ['', 'Cloud-based PBX', '', '', 'PBX basé sur le cloud'],
                     isParent: 0
                 },
                 {
                     id: 2,
                     icon: logo2,
                     link: '/single_service/local',
-                    trans: ['', 'Cloud-based PBX', '', '', 'PBX basé sur le cloud'],
+                    trans: ['', 'Self-Hosted PBX', '', '', 'PBX auto-hébergé'],
+
                     isParent: 0
                 },
                 {
