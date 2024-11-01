@@ -13,6 +13,7 @@ import company from '../assets/img/icon/img.avif'
 import mail from '../assets/img/icon/img_1.avif'
 import department from '../assets/img/icon/department.avif'
 import Api from "../Api";
+import {Helmet} from "react-helmet";
 function Register(props) {
     const navigate = useNavigate()
     const location = useLocation()
@@ -62,71 +63,155 @@ function Register(props) {
 
     if (windowWidth > 786) {
         return (
+            <>
+                <Helmet>
+                    <meta name="robots" content="noindex, nofollow" />
+                </Helmet>
+                <div className="big_screen">
 
-            <div className="big_screen">
-                <div className="login_container"/>
-                <div className="login">
-                    <div className="login_header">
-                        <p>
-                            {log_reg.sign[lang[params?.lang || 'en']]}
-                        </p>
-                        <span onClick={removeHash} style={{cursor: 'pointer'}}>
+                    <div className="login_container"/>
+                    <div className="login">
+                        <div className="login_header">
+                            <p>
+                                {log_reg.sign[lang[params?.lang || 'en']]}
+                            </p>
+                            <span onClick={removeHash} style={{cursor: 'pointer'}}>
                             <img src={x} alt=''/>
 
                         </span>
-                    </div>
-                    <div className="login_block">
-                        <div>
-                            <div className="login_block_input">
-                                <div>
-                                    <label>
-                                        <img width="17" height="17" src={company} alt=""/>
-                                        <input placeholder={input.company[lang[params?.lang || 'en']]}
-                                               onChange={(ev) => handleChange('company', ev.target.value)}
-                                               value={form.company}/>
-                                    </label>
+                        </div>
+                        <div className="login_block">
+                            <div>
+                                <div className="login_block_input">
+                                    <div>
+                                        <label>
+                                            <img width="17" height="17" src={company} alt=""/>
+                                            <input placeholder={input.company[lang[params?.lang || 'en']]}
+                                                   onChange={(ev) => handleChange('company', ev.target.value)}
+                                                   value={form.company}/>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <img src={email} alt=""/>
+                                            <input placeholder={input.name[lang[params?.lang || 'en']]}
+                                                   onChange={(ev) => handleChange('fullName', ev.target.value)}
+                                                   value={form.fullName}/>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <img width="17" height="17" src={department} alt=""/>
+                                            <input placeholder={input.position[lang[params?.lang || 'en']]}
+                                                   onChange={(ev) => handleChange('position', ev.target.value)}
+                                                   value={form.position}/>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <img width="17" height="17" src={mail} alt=""/>
+                                            <input placeholder={input.email[lang[params?.lang || 'en']]}
+                                                   onChange={(ev) => handleChange('email', ev.target.value)}
+                                                   value={form.email}/>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <PhoneInput
+                                                international
+                                                defaultCountry="US"
+                                                placeholder={buttons.email[lang[params?.lang || 'en']]}
+                                                value={form.phone}
+                                                onChange={(ev) => handleChange('phone',ev)}/>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <p>{log_reg.desc[lang[params?.lang || 'en'] || 1]}</p>
+                                    </div>
+
                                 </div>
+                            </div>
+                            <div>
                                 <div>
-                                    <label>
-                                        <img src={email} alt=""/>
-                                        <input placeholder={input.name[lang[params?.lang || 'en']]}
-                                               onChange={(ev) => handleChange('fullName', ev.target.value)}
-                                               value={form.fullName}/>
-                                    </label>
-                                </div>
-                                <div>
-                                    <label>
-                                        <img width="17" height="17" src={department} alt=""/>
-                                        <input placeholder={input.position[lang[params?.lang || 'en']]}
-                                               onChange={(ev) => handleChange('position', ev.target.value)}
-                                               value={form.position}/>
-                                    </label>
-                                </div>
-                                <div>
-                                    <label>
-                                        <img width="17" height="17" src={mail} alt=""/>
-                                        <input placeholder={input.email[lang[params?.lang || 'en']]}
-                                               onChange={(ev) => handleChange('email', ev.target.value)}
-                                               value={form.email}/>
-                                    </label>
-                                </div>
-                                <div>
-                                    <label>
-                                        <PhoneInput
-                                            international
-                                            defaultCountry="US"
-                                            placeholder={buttons.email[lang[params?.lang || 'en']]}
-                                            value={form.phone}
-                                            onChange={(ev) => handleChange('phone',ev)}/>
-                                    </label>
-                                </div>
-                                <div>
-                                    <p>{log_reg.desc[lang[params?.lang || 'en'] || 1]}</p>
+                                    <button onClick={handleRegister} className="register_btn">
+                                        <img src={plus} alt=''/>
+                                        {buttons.reg[lang[params?.lang || 'en'] || 1]}
+                                    </button>
                                 </div>
 
                             </div>
                         </div>
+                    </div>
+                </div>
+            </>
+        );
+    } else {
+        return (
+            <>
+                <Helmet>
+                    <meta name="robots" content="noindex, nofollow" />
+                </Helmet>
+                <div className="login">
+                    <div className="login_header justify-content-end">
+
+                        <Link to={localStorage.getItem('ats_link') || '/'}>
+                            <img src={x} alt='Go back'/>
+
+                        </Link>
+                    </div>
+                    <div className="login_header">
+                        <p>
+                            {log_reg.sign[lang[params?.lang || 'en']]}
+                        </p>
+
+                    </div>
+                    <div className="login_block_input">
                         <div>
+                            <label>
+                                <img width="17" height="17" src={company} alt=""/>
+                                <input placeholder={input.company[lang[params?.lang || 'en']]}
+                                       onChange={(ev) => handleChange('company', ev.target.value)}
+                                       value={form.company}/>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <img src={email} alt=""/>
+                                <input placeholder={input.name[lang[params?.lang || 'en']]}
+                                       onChange={(ev) => handleChange('fullName', ev.target.value)}
+                                       value={form.fullName}/>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <img width="17" height="17" src={department} alt=""/>
+                                <input placeholder={input.position[lang[params?.lang || 'en']]}
+                                       onChange={(ev) => handleChange('position', ev.target.value)}
+                                       value={form.position}/>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <img width="17" height="17" src={mail} alt=""/>
+                                <input placeholder={input.email[lang[params?.lang || 'en']]}
+                                       onChange={(ev) => handleChange('email', ev.target.value)}
+                                       value={form.email}/>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <PhoneInput
+                                    international
+                                    defaultCountry="US"
+                                    placeholder={buttons.email[lang[params?.lang || 'en']]}
+                                    value={form.phone}
+                                    onChange={(ev) => handleChange('phone',ev)}/>
+                            </label>
+                        </div>
+                        <div>
+                            <p>{log_reg.desc[lang[params?.lang || 'en'] || 1]}</p>
+                        </div>
+                        <div className="login_block_input">
                             <div>
                                 <button onClick={handleRegister} className="register_btn">
                                     <img src={plus} alt=''/>
@@ -135,86 +220,12 @@ function Register(props) {
                             </div>
 
                         </div>
-                    </div>
-                </div>
-            </div>
-        );
-    } else {
-        return (
-            <div className="login">
-                <div className="login_header justify-content-end">
 
-                    <Link to={localStorage.getItem('ats_link') || '/'}>
-                        <img src={x} alt='Go back'/>
-
-                    </Link>
-                </div>
-                <div className="login_header">
-                    <p>
-                        {log_reg.sign[lang[params?.lang || 'en']]}
-                    </p>
-
-                </div>
-                <div className="login_block_input">
-                    <div>
-                        <label>
-                            <img width="17" height="17" src={company} alt=""/>
-                            <input placeholder={input.company[lang[params?.lang || 'en']]}
-                                   onChange={(ev) => handleChange('company', ev.target.value)}
-                                   value={form.company}/>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <img src={email} alt=""/>
-                            <input placeholder={input.name[lang[params?.lang || 'en']]}
-                                   onChange={(ev) => handleChange('fullName', ev.target.value)}
-                                   value={form.fullName}/>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <img width="17" height="17" src={department} alt=""/>
-                            <input placeholder={input.position[lang[params?.lang || 'en']]}
-                                   onChange={(ev) => handleChange('position', ev.target.value)}
-                                   value={form.position}/>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <img width="17" height="17" src={mail} alt=""/>
-                            <input placeholder={input.email[lang[params?.lang || 'en']]}
-                                   onChange={(ev) => handleChange('email', ev.target.value)}
-                                   value={form.email}/>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <PhoneInput
-                                international
-                                defaultCountry="US"
-                                placeholder={buttons.email[lang[params?.lang || 'en']]}
-                                value={form.phone}
-                                onChange={(ev) => handleChange('phone',ev)}/>
-                        </label>
-                    </div>
-                    <div>
-                        <p>{log_reg.desc[lang[params?.lang || 'en'] || 1]}</p>
-                    </div>
-                    <div className="login_block_input">
-                        <div>
-                            <button onClick={handleRegister} className="register_btn">
-                                <img src={plus} alt=''/>
-                                {buttons.reg[lang[params?.lang || 'en'] || 1]}
-                            </button>
-                        </div>
 
                     </div>
-
 
                 </div>
-
-            </div>
+            </>
 
         )
     }

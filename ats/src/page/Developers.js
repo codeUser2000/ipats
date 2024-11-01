@@ -75,6 +75,7 @@ function Developers(props) {
                   <title>
                       {menu[4].trans[lang[param?.lang || 'en'] || 1]}
                   </title>
+                      <meta name="robots" content="noindex, nofollow" />
               </Helmet>
               <div className="main_container">
                   <h3 className="d-flex align-items-center justify-content-between">
