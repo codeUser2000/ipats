@@ -1330,11 +1330,11 @@ h1, h3, h3 {
 }
 .big_screen .login {
   background: white;
-  width: 515px;
-  height: 490px;
+  width: 800px;
+  height: 310px;
   position: fixed;
   z-index: 100000;
-  top: 65px;
+  top: 130px;
   left: 0;
   right: 0;
   margin: auto;
@@ -1373,7 +1373,7 @@ h1, h3, h3 {
   align-items: flex-start;
 }
 .big_screen .login_block > div > div {
-  width: 90%;
+  width: 49%;
 }
 .big_screen .login_block_input input {
   outline: none;
@@ -1468,12 +1468,33 @@ h1, h3, h3 {
 }
 
 .footer {
-  min-height: 150px;
+  min-height: 200px;
   width: 100%;
   background: #0973B9;
 }
 .footer_block {
   padding: 20px 200px;
+}
+.footer .brand_icon {
+  width: 30px;
+  display: flex;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  margin-right: 15px;
+  transition: all 0.4s;
+}
+.footer .brand_icon svg {
+  color: white;
+  transition: all 0.4s;
+}
+.footer .brand_icon:hover {
+  color: #0973B9;
+  background: white;
+}
+.footer .brand_icon:hover svg {
+  color: #0973B9;
 }
 .footer .copyright {
   padding: 20px 200px 5px;
@@ -1484,6 +1505,13 @@ h1, h3, h3 {
 }
 .footer_text {
   font-size: 12px;
+}
+.footer .app {
+  display: inline-block;
+  width: fit-content;
+}
+.footer .app img {
+  width: 35px;
 }
 .footer_nav ul {
   text-decoration: none;
@@ -1501,6 +1529,7 @@ h1, h3, h3 {
 }
 .footer .download {
   color: white;
+  margin-top: 15px;
 }
 .footer .download div {
   width: 100%;
@@ -1517,6 +1546,13 @@ h1, h3, h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.footer .download .inform {
+  color: white;
+  width: 100%;
+  justify-content: flex-start;
+  font-size: 13px;
+  height: 25px;
 }
 .footer .download .p {
   font-size: 16px;
@@ -1545,7 +1581,7 @@ h1, h3, h3 {
   cursor: pointer;
 }
 .select_lang:hover {
-  height: 80px;
+  height: 105px;
 }
 .select_lang ul {
   padding: 0;
@@ -1553,7 +1589,7 @@ h1, h3, h3 {
   margin-bottom: 0;
   display: flex;
   flex-direction: column;
-  height: 45px;
+  height: 70px;
   justify-content: space-around;
 }
 .select_lang div {
