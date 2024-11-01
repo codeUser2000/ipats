@@ -93,7 +93,7 @@ function AsideMenu({visible, setVisible}) {
                                         <li key={l.id} onClick={() => {
                                         }}><NavLink to={`/${Utils.lang()}${l.link}`}>
                                             <img src={l.icon} alt={"Go to" + l.link}/>
-                                            {l.id === 1 && +lang[params?.lang || 'en'] === 3?'Գլխավոր':l.trans[lang[params?.lang || 'en'] || 1]}
+                                            {l.id === 1 && +lang[params?.lang || 'en'] === 4?"Page d'accueil":l.trans[lang[params?.lang || 'en'] || 1]}
                                         </NavLink></li>
                                     )
                                 }
